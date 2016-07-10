@@ -7346,7 +7346,7 @@ function App() {
 }
 
 function welcomeNewUser() {
-    if (window.location.host !== "www.pinacoladaday.co.uk") {
+    if (window.location.host !== "www.cubanweekender.co.uk") {
         return;
     }
     var formData = getUserCrmData();
@@ -7383,7 +7383,7 @@ function welcomeNewUser() {
 }
 
 function signUpNewsletter() {
-    if (window.location.host !== "www.pinacoladaday.co.uk") {
+    if (window.location.host !== "www.cubanweekender.co.uk") {
         return;
     }
     var newsletterRequest, formData = getUserCrmData();
