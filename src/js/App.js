@@ -9,26 +9,14 @@ Description:
 *********************/
 
 var parseIds = {
-		"ldnmalnpcd.dev.analogfolk.com":{
-			appId: '4FWhUB8E3gsuFajqDCPdk28iEwHH1kHUnmWZlQO0',
-			jsKey: '2rXVDkQ1o4vv54O62PVkj1LXzAhAL2ajRULi9M7O'
-		}, // dev
-		"ldnmalnpcd-dev.parseapp.com":{
-			appId: '4FWhUB8E3gsuFajqDCPdk28iEwHH1kHUnmWZlQO0',
-			jsKey: '2rXVDkQ1o4vv54O62PVkj1LXzAhAL2ajRULi9M7O'
-		}, // uat
-		"ldnmalnpcd-prod.parseapp.com":{
-			appId: 'QoeSgYj4aQpznXqEzsEd6ICh09iQSXZ153kLp40D',
-			jsKey: 'b3A9LbFG35LhU8rHHod9qtVFRUv63KZ52CN3Tr3R'
-		}, //prod
-		"pinacoladaday.co.uk":{
-			appId: 'QoeSgYj4aQpznXqEzsEd6ICh09iQSXZ153kLp40D',
-			jsKey: 'b3A9LbFG35LhU8rHHod9qtVFRUv63KZ52CN3Tr3R'
-		}, //prod
-		"www.pinacoladaday.co.uk":{
-			appId: 'QoeSgYj4aQpznXqEzsEd6ICh09iQSXZ153kLp40D',
-			jsKey: 'b3A9LbFG35LhU8rHHod9qtVFRUv63KZ52CN3Tr3R'
-		} //prod
+		"hccw2016dd.parseapp.com":{
+			appId: 'T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ',
+			jsKey: 'oZemHp5yhK37wcdaBnbtpL8GvjR0G1wQu1Yuj8ju'
+		},
+		"192.168.10.100":{
+			appId: 'T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ',
+			jsKey: 'oZemHp5yhK37wcdaBnbtpL8GvjR0G1wQu1Yuj8ju'
+		},
 	},
 	parseId = {
 		appId: '',

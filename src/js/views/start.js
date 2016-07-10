@@ -11,7 +11,7 @@ Description:
 function StartScreen() {
 
 	var self = this,
-		endDate = new Date(2015, 6, 12, 0, 0, 0, 0),
+		endDate = new Date(2016, 6, 12, 0, 0, 0, 0),
 		now = new Date(),
 		contentLoadedCheck,
 		cssLoaded = false,

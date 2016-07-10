@@ -1,18 +1,15 @@
 {
   "global": {
-    "parseVersion": "1.4.2"
+    "parseVersion": "1.6.14"
   },
   "applications": {
-    "development": {
-      "applicationId": "4FWhUB8E3gsuFajqDCPdk28iEwHH1kHUnmWZlQO0",
-      "masterKey": "a7Zt7Dik0HMNNnUEktOyQvocU8v6JLmB1hZljo3I"
+    "hccw16dev": {
+      "applicationId": "T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ",
+      "masterKey": "SN5naAufcNfX5R6U7S8fCIEKk9d469bqDkAUyuQR"
     },
-    "production": {
-      "applicationId": "QoeSgYj4aQpznXqEzsEd6ICh09iQSXZ153kLp40D",
-      "masterKey": "QFLRsPiuD833iysjIC4JHDB5Yk7wdMSXYYgQHV6U"
-    },
+    
     "_default": {
-      "link": "development"
+      "link": "hccw16dev"
     }
   }
 }
