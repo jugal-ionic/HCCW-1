@@ -1,0 +1,18 @@
+{
+  "global": {
+    "parseVersion": "1.4.2"
+  },
+  "applications": {
+    "development": {
+      "applicationId": "4FWhUB8E3gsuFajqDCPdk28iEwHH1kHUnmWZlQO0",
+      "masterKey": "a7Zt7Dik0HMNNnUEktOyQvocU8v6JLmB1hZljo3I"
+    },
+    "production": {
+      "applicationId": "QoeSgYj4aQpznXqEzsEd6ICh09iQSXZ153kLp40D",
+      "masterKey": "QFLRsPiuD833iysjIC4JHDB5Yk7wdMSXYYgQHV6U"
+    },
+    "_default": {
+      "link": "development"
+    }
+  }
+}
