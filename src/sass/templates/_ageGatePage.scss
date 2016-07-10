@@ -4,6 +4,10 @@
 		padding: 12px 0;
 	}
 
+	.wrapped-center {
+		padding: 12px 0;
+		text-align:center;
+	}
 	.header-wrap {
 		padding-top: 15px;
 		height: 230px;
@@ -32,7 +36,7 @@
 		text-align: center;
 		font-size: 21px;
 		font-style: italic;
-		color: $orange;
+		color: $blue;
 		@include signpainter();
 		box-shadow: 3px 3px 0px 0px rgba(166, 166, 166, 0.75) inset;
 		background-color: $colourTextNeg;
@@ -45,6 +49,12 @@
 
 		&#birth-year {
 			width: 110px;
+		}
+		&#birth-month {
+			display:none;
+		}
+		&#birth-day {
+			display:none;
 		}
 	}
 
@@ -62,7 +72,7 @@
 	footer {
 		clear: both;
 		@include geox-regular();
-		color: $green-dark;
+		color: $blue-dark;
 	}
 
 	.age-gate-label {

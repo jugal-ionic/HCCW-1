@@ -32,24 +32,28 @@ function AgeGateScreen() {
 				return console.log('User cancelled login or did not fully authorize.');
 			}
 			
-			FB.api('/me', function(response) {
+		FB.api('/me?fields=age_range,first_name,last_name,email', function(response) {
 
-				var user_email = response.email,
-					user_birthday = response.birthday,
-					user_firstName = response.first_name,
-					user_lastName = response.last_name,
-					day = parseInt(user_birthday.substr(3, 2)),
-					month = parseInt(user_birthday.substr(0, 2)),
-					year = parseInt(user_birthday.substr(6, 4));
+		    console.log(response);
 
-				currentUser.set('email', user_email);
-				currentUser.set('name', user_firstName + ' ' + user_lastName);
+		    var user_email = response.email,
+		     user_firstName = response.first_name,
+		     user_lastName = response.last_name,
+		     day = 1,
+		     month = 1,
+		     // Facebook only returns a minimum age, for our purposes this is enough
+		     // as we don't really care when the user was born, just that they are
+		     // old enough
+		     currentYear = new Date().getFullYear(),
+		     year = currentYear - response.age_range.min;
 
-				dayField.value = day;
-				monthField.value = month;
-				yearField.value = year;
+		    currentUser.set('email', user_email);
+		    currentUser.set('name', user_firstName + ' ' + user_lastName);
+		    dayField.value = day;
+		    monthField.value = month;
+		    yearField.value = year;
 
-				validateInputs();
+		    validateInputs();
 
 			});
 
@@ -78,7 +82,15 @@ function AgeGateScreen() {
 		var errorWrapper = document.getElementById('error-overlay'),
 			errorMessage = document.getElementById('dateErrorMessage'),
 			generalDateMessage = 'but you must be 18 or over to celebrate National Piña Colada Day with us.';
-
+		if(parseInt(yearField.value,10)==1998 && parseInt(monthField.value,10) == 1 && parseInt(dayField.value,10) == 1)
+			{
+				document.getElementById('birth-month').value='';
+				document.getElementById('birth-day').value='';
+				document.getElementById('birth-day').style.display = "inline";
+				document.getElementById('birth-month').style.display = "inline";
+				isSubmitting = false;
+				return false;
+			}
 		if (!formValidation.field(dayField).valid || !formValidation.field(monthField).valid || !formValidation.field(yearField).valid) {
 
 			errorMessage.textContent = generalDateMessage;
@@ -92,10 +104,10 @@ function AgeGateScreen() {
 			monthVal = (monthField.value) - 1,
 			yearVal = yearField.value,
 			today = new Date(),
-			minBirthDateUnix = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate(), 12, 0, 0, 0).getTime(),
+			minBirthDateUnix = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate()+1, 12, 0, 0, 0).getTime(),
 			usersBirthday = new Date(yearVal, monthVal, dayVal, 12, 0, 0, 0),
 			usersBirthdayUnix = usersBirthday.getTime();
-
+			
 		if (usersBirthdayUnix - minBirthDateUnix < 0) {
 
 			ga('send', 'event', 'Age Gate', 'Submit', 'submit success');
@@ -165,20 +177,21 @@ function AgeGateScreen() {
 			}
 		}
 	}
-
-	function limitFieldInput(e) {
-
-		var target = e.target,
-			maxLength = target.getAttribute('maxlength');
-
-		if (maxLength && target.value.length >= maxLength) {
-			e.preventDefault();
-			return false;
-		}
-		
+	function validateFieldInputYear(e) {
+		var yearField = document.getElementById('birth-year').value;
+		var monthField = document.getElementById('birth-month').value;
+		var dayField = document.getElementById('birth-day').value;
+		if(parseInt(yearField,10)==1998 && parseInt(monthField,10) == 0 && parseInt(dayField,10) == 0)
+				{
+					document.getElementById('birth-month').value='';
+					document.getElementById('birth-day').value='';
+					document.getElementById('birth-day').style.display = "inline";
+					document.getElementById('birth-month').style.display = "inline";
+					e.preventDefault();
+					return false;
+				}
 		return true;
-
-	}
+		}
 	
 	//Do post container creation processing
 	this.processContainer = function() {
@@ -193,7 +206,7 @@ function AgeGateScreen() {
 		ageGateForm.addEventListener('submit', validateInputs);
 		ageGateForm.addEventListener('keypress', validateFieldInput);
 		ageGateForm.addEventListener('keypress', limitFieldInput);
-		// ageGateForm.addEventListener('keyup', limitFieldInput);
+		ageGateForm.addEventListener('keyup', validateFieldInputYear);
 
 		document.getElementById("facebook-login-button").addEventListener("click", fb_login);
 		document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);

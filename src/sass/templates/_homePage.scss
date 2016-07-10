@@ -42,7 +42,7 @@
 			
 			.social-text {
 				position: relative;
-				color: $green-dark;
+				color: $blue-dark;
 				@include geox-regular();
 				font-size: 13px;
 				width: 100%;
@@ -70,7 +70,7 @@
 			position: relative;
 			display: block;
 			margin-left: 58px;
-			color: $green;
+			color: $blue;
 			position: relative;
 			font-size: 32px;
 			z-index: 1;
@@ -115,7 +115,7 @@
 		padding-top: 40px;
 		clear: both;
 		@include geox-regular();
-		color: $green-dark;
+		color: $blue-dark;
 		text-align: center;
 		font-size: 13px;
 	}

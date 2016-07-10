@@ -6066,8 +6066,12 @@ function AgeGateScreen() {
             if (!response.authResponse) {
                 return console.log("User cancelled login or did not fully authorize.");
             }
-            FB.api("/me", function(response) {
-                var user_email = response.email, user_birthday = response.birthday, user_firstName = response.first_name, user_lastName = response.last_name, day = parseInt(user_birthday.substr(3, 2)), month = parseInt(user_birthday.substr(0, 2)), year = parseInt(user_birthday.substr(6, 4));
+            FB.api("/me?fields=age_range,first_name,last_name,email", function(response) {
+                console.log(response);
+                var user_email = response.email, user_firstName = response.first_name, user_lastName = response.last_name, day = 1, month = 1, // Facebook only returns a minimum age, for our purposes this is enough
+                // as we don't really care when the user was born, just that they are
+                // old enough
+                currentYear = new Date().getFullYear(), year = currentYear - response.age_range.min;
                 currentUser.set("email", user_email);
                 currentUser.set("name", user_firstName + " " + user_lastName);
                 dayField.value = day;
@@ -6092,13 +6096,21 @@ function AgeGateScreen() {
         }
         isSubmitting = true;
         var errorWrapper = document.getElementById("error-overlay"), errorMessage = document.getElementById("dateErrorMessage"), generalDateMessage = "but you must be 18 or over to celebrate National Piña Colada Day with us.";
+        if (parseInt(yearField.value, 10) == 1998 && parseInt(monthField.value, 10) == 1 && parseInt(dayField.value, 10) == 1) {
+            document.getElementById("birth-month").value = "";
+            document.getElementById("birth-day").value = "";
+            document.getElementById("birth-day").style.display = "inline";
+            document.getElementById("birth-month").style.display = "inline";
+            isSubmitting = false;
+            return false;
+        }
         if (!formValidation.field(dayField).valid || !formValidation.field(monthField).valid || !formValidation.field(yearField).valid) {
             errorMessage.textContent = generalDateMessage;
             errorWrapper.style.display = "block";
             isSubmitting = false;
             return false;
         }
-        var minAge = 18, dayVal = dayField.value, monthVal = monthField.value - 1, yearVal = yearField.value, today = new Date(), minBirthDateUnix = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate(), 12, 0, 0, 0).getTime(), usersBirthday = new Date(yearVal, monthVal, dayVal, 12, 0, 0, 0), usersBirthdayUnix = usersBirthday.getTime();
+        var minAge = 18, dayVal = dayField.value, monthVal = monthField.value - 1, yearVal = yearField.value, today = new Date(), minBirthDateUnix = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate() + 1, 12, 0, 0, 0).getTime(), usersBirthday = new Date(yearVal, monthVal, dayVal, 12, 0, 0, 0), usersBirthdayUnix = usersBirthday.getTime();
         if (usersBirthdayUnix - minBirthDateUnix < 0) {
             ga("send", "event", "Age Gate", "Submit", "submit success");
             currentUser.set("birthday", usersBirthday);
@@ -6144,9 +6156,15 @@ function AgeGateScreen() {
             }
         }
     }
-    function limitFieldInput(e) {
-        var target = e.target, maxLength = target.getAttribute("maxlength");
-        if (maxLength && target.value.length >= maxLength) {
+    function validateFieldInputYear(e) {
+        var yearField = document.getElementById("birth-year").value;
+        var monthField = document.getElementById("birth-month").value;
+        var dayField = document.getElementById("birth-day").value;
+        if (parseInt(yearField, 10) == 1998 && parseInt(monthField, 10) == 0 && parseInt(dayField, 10) == 0) {
+            document.getElementById("birth-month").value = "";
+            document.getElementById("birth-day").value = "";
+            document.getElementById("birth-day").style.display = "inline";
+            document.getElementById("birth-month").style.display = "inline";
             e.preventDefault();
             return false;
         }
@@ -6162,7 +6180,7 @@ function AgeGateScreen() {
         ageGateForm.addEventListener("submit", validateInputs);
         ageGateForm.addEventListener("keypress", validateFieldInput);
         ageGateForm.addEventListener("keypress", limitFieldInput);
-        // ageGateForm.addEventListener('keyup', limitFieldInput);
+        ageGateForm.addEventListener("keyup", validateFieldInputYear);
         document.getElementById("facebook-login-button").addEventListener("click", fb_login);
         document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
         return this.container;
@@ -6818,7 +6836,7 @@ Description:
 
 *********************/
 function StartScreen() {
-    var self = this, endDate = new Date(2016, 6, 12, 0, 0, 0, 0), now = new Date(), contentLoadedCheck, cssLoaded = false, greenBackground, whiteBackground, headerBackground, progressContainer, loggedIn = false, sessionExpired = false;
+    var self = this, endDate = new Date(2016, 6, 12, 0, 0, 0, 0), now = new Date(), contentLoadedCheck, cssLoaded = false, greenBackground, whiteBackground, headerBackground, progressContainer, loggedIn = false, sessionExpired = false, isAllow = false, geoCoder = new google.maps.Geocoder(), errorMessage = document.getElementById("dateErrorMessage"), errorWrapper = document.getElementById("error-overlay"), isReceivingData = false;
     Screen.apply(this, Array.prototype.slice.call(arguments));
     this.id = "start-screen";
     this.name = "Loading";
@@ -7258,11 +7276,15 @@ Description:
 
 *********************/
 var parseIds = {
-    "hccw2016dd.parseapp.com": {
+    "127.0.0.1": {
         appId: "T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ",
         jsKey: "oZemHp5yhK37wcdaBnbtpL8GvjR0G1wQu1Yuj8ju"
     },
     "192.168.10.100": {
+        appId: "T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ",
+        jsKey: "oZemHp5yhK37wcdaBnbtpL8GvjR0G1wQu1Yuj8ju"
+    },
+    "hccw2016dd.parseapp.com": {
         appId: "T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ",
         jsKey: "oZemHp5yhK37wcdaBnbtpL8GvjR0G1wQu1Yuj8ju"
     }
@@ -7290,7 +7312,7 @@ function setCookie() {
     var cssString = "margin-top: 0px; transition: all 0.2s ease-in;";
     document.getElementById("app").style.cssText = cssString;
     document.getElementById("cookieWrap").style.display = "none";
-    document.cookie = "MalibuNpcdCookie = accepted";
+    document.cookie = "MalibuHccwCookie2016 = accepted";
 }
 
 function hideErrorWrapper() {
@@ -7307,7 +7329,7 @@ function App() {
         window.removeEventListener("unload", this.destroy);
     };
     this.checkCookie = function() {
-        var cookie = window.getCookie("MalibuNpcdCookie");
+        var cookie = window.getCookie("MalibuHccwCookie2016");
         if (cookie == "accepted") {
             document.getElementById("cookieWrap").style.display = "none";
         } else {

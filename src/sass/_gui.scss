@@ -10,7 +10,7 @@ Stylesheet:
 
 .error,
 .required {
-	color: $orange-dark;
+	color: $blue-dark;
 	display: block;
 	width: 100%;
 	text-align: right;
@@ -24,8 +24,8 @@ Stylesheet:
 	}
 }
 
-.orange {
-	color: $orange-dark;
+.blue {
+	color: $blue-dark;
 }
 
 .required {
@@ -36,7 +36,7 @@ Stylesheet:
 .geolocationError {
 	@include signpainter;
 	font-style: italic;
-	color: $orange-dark;
+	color: $blue-dark;
 	text-align: center;
 }
 
@@ -51,7 +51,7 @@ Stylesheet:
 		position: relative;
 		display: block;
 		@include geox-regular;
-		color: $green-dark;
+		color: $blue-dark;
 		font-size: 14px;
 		margin-left: 35px;
 		padding-top: 2px;
@@ -126,7 +126,7 @@ Stylesheet:
 		height: 37px;
 		line-height: 37px;
 		text-align: center;
-		background-color: $orange;
+		background-color: $blue;
 		color: $colourTextNeg;
 		text-transform: uppercase;
 		vertical-align: top;
@@ -172,7 +172,7 @@ Stylesheet:
 			content: "";
 			position: absolute;
 			display: block;
-			background-color: $orange-dark;
+			background-color: $blue-dark;
 			z-index: -1;
 		}
 
@@ -206,12 +206,12 @@ Stylesheet:
 
 		.label,
 		.icon {
-			background-color: $orange-dark;
+			background-color: $blue-dark;
 
 			&::before,
 			&::after {
 				content: " ";
-				background-color: $orange;
+				background-color: $blue;
 			}
 		}
 	}
@@ -309,11 +309,11 @@ Stylesheet:
 		
 		.label,
 		.icon {
-			background-color: $green;
+			background-color: $blue;
 
 			&::before,
 			&::after {
-				background-color: $green-dark;
+				background-color: $blue-dark;
 			}
 		}
 
@@ -322,11 +322,11 @@ Stylesheet:
 
 			.label,
 			.icon {
-				background-color: $green-dark;
+				background-color: $blue-dark;
 
 				&::before,
 				&::after {
-					background-color: $green;
+					background-color: $blue;
 				}
 			}
 		}
@@ -352,7 +352,7 @@ Stylesheet:
 				height: 24px;
 				margin-left: -10px;
 				margin-top: -13px;
-				fill: $orange-dark; 
+				fill: $blue-dark; 
 			}
 		}
 	}
@@ -382,7 +382,7 @@ a.btn {
 .orangeLink,
 .orangeLink a {
 	text-align: center;
-	color: $green-dark;
+	color: $blue-dark;
 	@include signpainter;
 	font-style: italic;
 	font-size: 21px;
@@ -393,19 +393,19 @@ a.btn {
 }
 
 ::-webkit-input-placeholder {
-   color: #ffd3ae;
+   color: #11314d;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #ffd3ae;  
+   color: #11314d;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #ffd3ae;  
+   color: #11314d;  
 }
 
 :-ms-input-placeholder {  
-   color: #ffd3ae;  
+   color: #11314d;  
 }
 
 .dots-border {

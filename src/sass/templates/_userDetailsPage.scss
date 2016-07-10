@@ -17,7 +17,7 @@
 	label {
 		display:block;
 		@include geox-bold();
-		color: $green-dark;
+		color: $blue-dark;
 		margin: 15px 0 5px;
 
 		&:first-child {
@@ -30,7 +30,7 @@
 		width: 100%;
 		font-size: 24px;
 		font-style: italic;
-		color: $green-dark;
+		color: $blue-dark;
 		@include signpainter();
 		background-color: $colourTextNeg;
 		border: 0;

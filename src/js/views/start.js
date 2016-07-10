@@ -20,7 +20,12 @@ function StartScreen() {
 		headerBackground,
 		progressContainer,
 		loggedIn = false,
-		sessionExpired = false;
+		sessionExpired = false,
+		isAllow = false,
+		geoCoder = new google.maps.Geocoder(),
+		errorMessage = document.getElementById('dateErrorMessage'),
+		errorWrapper = document.getElementById('error-overlay'),
+		isReceivingData = false;
 
 	Screen.apply(this, Array.prototype.slice.call(arguments));
 

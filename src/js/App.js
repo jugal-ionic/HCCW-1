@@ -9,7 +9,7 @@ Description:
 *********************/
 
 var parseIds = {
-		"hccw2016dd.parseapp.com":{
+		"127.0.0.1":{
 			appId: 'T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ',
 			jsKey: 'oZemHp5yhK37wcdaBnbtpL8GvjR0G1wQu1Yuj8ju'
 		},
@@ -17,6 +17,10 @@ var parseIds = {
 			appId: 'T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ',
 			jsKey: 'oZemHp5yhK37wcdaBnbtpL8GvjR0G1wQu1Yuj8ju'
 		},
+		"hccw2016dd.parseapp.com":{
+			appId: 'T9KxUTRJxovuJ2jQ9eHkHRtIms2raqPdlJoAZUXZ',
+			jsKey: 'oZemHp5yhK37wcdaBnbtpL8GvjR0G1wQu1Yuj8ju'
+		}
 	},
 	parseId = {
 		appId: '',
@@ -46,7 +50,7 @@ function setCookie(){
 	document.getElementById('app').style.cssText = cssString;
 
 	document.getElementById('cookieWrap').style.display = "none";
-    document.cookie = "MalibuNpcdCookie = accepted";
+    document.cookie = "MalibuHccwCookie2016 = accepted";
 
 }
 
@@ -71,7 +75,7 @@ function App() {
 
 	this.checkCookie = function(){
 		
-		var cookie = window.getCookie("MalibuNpcdCookie");
+		var cookie = window.getCookie("MalibuHccwCookie2016");
 
 	    if (cookie == "accepted") {
 	        document.getElementById('cookieWrap').style.display = "none";
