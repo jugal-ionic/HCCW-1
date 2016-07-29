@@ -6095,7 +6095,7 @@ function AgeGateScreen() {
             return;
         }
         isSubmitting = true;
-        var errorWrapper = document.getElementById("error-overlay"), errorMessage = document.getElementById("dateErrorMessage"), generalDateMessage = "but you must be 18 or over to celebrate National Piña Colada Day with us.";
+        var errorWrapper = document.getElementById("error-overlay"), errorMessage = document.getElementById("dateErrorMessage"), generalDateMessage = '<p class="intro-text middle"><span class="lower blue">but </span><span class="upper blue">Y</span><span class="lower blue">ou must be 18 or over to </span><span class="upper red">FREE </span><span class="lower red">Havana Club <br>Cuban Cocktail </span><span class="lower blue"> with us.</span></p>';
         if (parseInt(yearField.value, 10) == 1998 && parseInt(monthField.value, 10) == 1 && parseInt(dayField.value, 10) == 1) {
             document.getElementById("birth-month").value = "";
             document.getElementById("birth-day").value = "";
@@ -6105,7 +6105,7 @@ function AgeGateScreen() {
             return false;
         }
         if (!formValidation.field(dayField).valid || !formValidation.field(monthField).valid || !formValidation.field(yearField).valid) {
-            errorMessage.textContent = generalDateMessage;
+            errorMessage.innerHTML = generalDateMessage;
             errorWrapper.style.display = "block";
             isSubmitting = false;
             return false;
@@ -6117,7 +6117,7 @@ function AgeGateScreen() {
             loadUserDetailsPage();
         } else {
             ga("send", "event", "Age Gate", "Submit", "submit fail");
-            errorMessage.textContent = generalDateMessage;
+            errorMessage.innerHTML = generalDateMessage;
             errorWrapper.style.display = "block";
             isSubmitting = false;
             return false;
@@ -6172,6 +6172,12 @@ function AgeGateScreen() {
     }
     //Do post container creation processing
     this.processContainer = function() {
+        // document.getElementById('tile1').style.display = "none";
+        // document.getElementById('tile2').style.display = "none";
+        // document.getElementById('tile3').style.display = "none";
+        // document.getElementById('tile4').style.display = "none";
+        // document.getElementById('tile5').style.display = "none";
+        // document.getElementById('tile6').style.display = "inline";
         this.events.publish(this.id + "ContainerReady", this);
         dayField = document.getElementById("birth-day");
         monthField = document.getElementById("birth-month");
@@ -6182,7 +6188,7 @@ function AgeGateScreen() {
         ageGateForm.addEventListener("keypress", limitFieldInput);
         ageGateForm.addEventListener("keyup", validateFieldInputYear);
         document.getElementById("facebook-login-button").addEventListener("click", fb_login);
-        document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
+        //document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
         return this.container;
     };
 }
@@ -6210,6 +6216,12 @@ function BarsListScreen() {
     }
     //Do post container creation processing
     this.processContainer = function() {
+        // document.getElementById('tile1').style.display = "none";
+        // document.getElementById('tile2').style.display = "none";
+        // document.getElementById('tile3').style.display = "none";
+        // document.getElementById('tile4').style.display = "none";
+        // document.getElementById('tile5').style.display = "none";
+        // document.getElementById('tile6').style.display = "none";
         this.events.publish(this.id + "ContainerReady", this);
         document.getElementById("show-map").addEventListener("click", showBarsMap);
         return this.container;
@@ -6245,8 +6257,8 @@ function HomePageScreen() {
             self.scrManager.addScreen(VoucherPageScreen);
         } else {
             // self.scrManager.addScreen(VoucherPageScreen);
-            var errorWrapper = document.getElementById("error-overlay"), errorMessage = document.getElementById("dateErrorMessage"), voucherError = "You’re keen! It’s not quite time to enjoy a Piña Colada just yet though, you’ll have to wait until the 10th and 11th of July.";
-            errorMessage.textContent = voucherError;
+            var errorWrapper = document.getElementById("error-overlay"), errorMessage = document.getElementById("dateErrorMessage"), voucherError = '<p class="intro-text middle"><span class="upper blue">Y</span><span class="lower blue">ou’re keen! it’s not quite time to enjoy a </span><span class="upper red">H</span><span class="lower red">avana Club cuban cocktail </span><span class="lower blue">just yet though, you’ll have to wait until the 18th of august.</span></p>';
+            errorMessage.innerHTML = voucherError;
             errorWrapper.style.display = "block";
         }
     }
@@ -6264,9 +6276,15 @@ function HomePageScreen() {
     }
     //Do post container creation processing
     this.processContainer = function() {
+        // document.getElementById('tile1').style.display = "none";
+        // document.getElementById('tile2').style.display = "none";
+        // document.getElementById('tile3').style.display = "none";
+        // document.getElementById('tile4').style.display = "none";
+        // document.getElementById('tile5').style.display = "none";
+        // document.getElementById('tile6').style.display = "none";
         this.events.publish(this.id + "ContainerReady", this);
         document.getElementById("find-a-bar-btn").addEventListener("click", loadMapPage);
-        document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
+        //document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
         voucherCTA = document.getElementById("voucher-cta");
         if (now < startDate) {
             voucherCTA.style.opacity = "0.5";
@@ -6274,14 +6292,14 @@ function HomePageScreen() {
         }
         voucherCTA.addEventListener("click", loadEnterVoucherPage);
         var calendarCTA = document.getElementById("calendarCTA"), ua = navigator.userAgent.toLowerCase(), isAndroid = ua.indexOf("android") > -1;
-        if (ua.indexOf("ios") >= 0 || ua.indexOf("os x") >= 0 || ua.indexOf("macintosh") >= 0) {
-            calendarCTA.href = "/calendar/mnpcd.ics";
-            calendarCTA.addEventListener("click", function() {
-                ga("send", "event", "Calendar", "click");
-            });
-        } else {
-            calendarCTA.style.display = "none";
-        }
+        //if(ua.indexOf('ios') >= 0 || ua.indexOf('os x') >= 0 || ua.indexOf('macintosh') >= 0) {
+        calendarCTA.href = "/calendar/mnpcd.ics";
+        calendarCTA.addEventListener("click", function() {
+            ga("send", "event", "Calendar", "click");
+        });
+        //} else {
+        //	calendarCTA.style.display = "none";
+        //}
         return this.container;
     };
 }
@@ -6608,6 +6626,12 @@ function MapPageScreen() {
     }
     //Do post container creation processing
     this.processContainer = function() {
+        // document.getElementById('tile1').style.display = "none";
+        // document.getElementById('tile2').style.display = "none";
+        // document.getElementById('tile3').style.display = "none";
+        // document.getElementById('tile4').style.display = "none";
+        // document.getElementById('tile5').style.display = "none";
+        // document.getElementById('tile6').style.display = "none";
         this.events.publish(this.id + "ContainerReady", this);
         var backBtn = document.getElementById("backBtn"), getDirectionsBtn;
         listWrap = this.container.querySelector(".bar-list-wrapper");
@@ -6655,6 +6679,12 @@ function PrivacyPolicyScreen() {
     this.root = false;
     //Do post container creation processing
     this.processContainer = function() {
+        // document.getElementById('tile1').style.display = "none";
+        // document.getElementById('tile2').style.display = "none";
+        // document.getElementById('tile3').style.display = "none";
+        // document.getElementById('tile4').style.display = "none";
+        // document.getElementById('tile5').style.display = "none";
+        // document.getElementById('tile6').style.display = "none";
         this.events.publish(this.id + "ContainerReady", this);
         ga("send", "event", "Privacy Policy", "Viewed");
         var backBtn = document.getElementById("backBtn");
@@ -6690,8 +6720,14 @@ function PromotionOverScreen() {
     }
     //Do post container creation processing
     this.processContainer = function() {
+        // document.getElementById('tile1').style.display = "none";
+        // document.getElementById('tile2').style.display = "none";
+        // document.getElementById('tile3').style.display = "none";
+        // document.getElementById('tile4').style.display = "none";
+        // document.getElementById('tile5').style.display = "none";
+        // document.getElementById('tile6').style.display = "none";
         this.events.publish(this.id + "ContainerReady", this);
-        document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
+        //document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
         return this.container;
     };
 }
@@ -6836,7 +6872,7 @@ Description:
 
 *********************/
 function StartScreen() {
-    var self = this, endDate = new Date(2016, 6, 12, 0, 0, 0, 0), now = new Date(), contentLoadedCheck, cssLoaded = false, greenBackground, whiteBackground, headerBackground, progressContainer, loggedIn = false, sessionExpired = false, isAllow = false, geoCoder = new google.maps.Geocoder(), errorMessage = document.getElementById("dateErrorMessage"), errorWrapper = document.getElementById("error-overlay"), isReceivingData = false;
+    var self = this, endDate = new Date(2016, 6, 17, 0, 0, 0, 0), now = new Date(), contentLoadedCheck, cssLoaded = false, greenBackground, whiteBackground, headerBackground, progressContainer, loggedIn = false, sessionExpired = false, isAllow = false, geoCoder = new google.maps.Geocoder(), errorMessage = document.getElementById("dateErrorMessage"), errorWrapper = document.getElementById("error-overlay"), isReceivingData = false;
     Screen.apply(this, Array.prototype.slice.call(arguments));
     this.id = "start-screen";
     this.name = "Loading";
@@ -6898,21 +6934,15 @@ function StartScreen() {
         self.routeUser();
     }
     self.routeUser = function() {
-        if (now >= endDate) {
-            return self.scrManager.addScreen(PromotionOverScreen, {
-                standalone: true
-            }, true);
-        }
+        if (now >= endDate) {}
         if (window.location.pathname === "/bars") {
             return self.scrManager.addScreen(MapPageScreen, {
                 standalone: true
             }, true);
         }
-        if (window.location.pathname === "/privacy-policy") {
-            return self.scrManager.addScreen(PrivacyPolicyScreen, {
-                standalone: true
-            }, true);
-        }
+        // if (window.location.pathname === '/privacy-policy') {
+        // 	return self.scrManager.addScreen(PrivacyPolicyScreen, {standalone: true}, true);
+        // }
         if (loggedIn && !sessionExpired && currentUser.attributes.drinkRedeemed) {
             return self.scrManager.addScreen(ThankYouScreen);
         } else if (loggedIn && !sessionExpired) {
@@ -6933,7 +6963,14 @@ function StartScreen() {
                     sessionExpired = false;
                 },
                 error: function(user, error) {
-                    Parse.User.logOut();
+                    Parse.User.logOut({
+                        success: function(user) {
+                            console.log(user);
+                        },
+                        error: function(user, error) {
+                            console.log(user, error);
+                        }
+                    });
                     loggedIn = true;
                     sessionExpired = true;
                     console.warn(user, error);
@@ -6947,7 +6984,7 @@ function StartScreen() {
         greenBackground = new Image();
         greenBackground.src = "/assets/img/backgrounds/mobile-footer-wrap-bg.png";
         whiteBackground = new Image();
-        whiteBackground.src = "/assets/img/backgrounds/mobile-body-bg.png";
+        whiteBackground.src = "/assets/img/backgrounds/mobile-body-bg.jpg";
         headerBackground = new Image();
         headerBackground.src = "/assets/img/backgrounds/mobile-header-bg.png";
         self.cssRequest = new XMLHttpRequest();
@@ -7127,6 +7164,12 @@ function UserDetailsScreen() {
     }
     //Do post container creation processing
     this.processContainer = function() {
+        // document.getElementById('tile1').style.display = "none";
+        // document.getElementById('tile2').style.display = "none";
+        // document.getElementById('tile3').style.display = "none";
+        // document.getElementById('tile4').style.display = "none";
+        // document.getElementById('tile5').style.display = "none";
+        // document.getElementById('tile6').style.display = "none";
         this.events.publish(this.id + "ContainerReady", this);
         detailsForm = document.getElementById("detailsForm");
         fullName = document.getElementById("fullNameInput");
@@ -7169,7 +7212,8 @@ function VoucherPageScreen() {
         e.preventDefault();
         self.scrManager.addScreen(ThankYouScreen);
     }
-    function codeNotValid(invalidPin) {
+    function codeNotValid(e, invalidPin) {
+        e.preventDefault();
         alert("The code you entered is not valid.");
     }
     function codeIsValid(barObject) {
@@ -7215,7 +7259,7 @@ function VoucherPageScreen() {
         for (i = 0; i < fields.length; i++) {
             if (fields[i].tagName.toLowerCase() === "input") {
                 if (!validator.field(fields[i]).valid) {
-                    return codeNotValid();
+                    return codeNotValid(e);
                 } else {
                     code += fields[i].value;
                 }
@@ -7242,6 +7286,11 @@ function VoucherPageScreen() {
                 field.blur();
             }, 10);
         }
+        var digit4 = document.getElementById("digit4");
+        if (digit4 >= 0) {
+            save = document.getElementById("save");
+            save.disabled = false;
+        }
     }
     function limitFieldInput(e) {
         var target = e.target, maxLength = target.getAttribute("maxlength");
@@ -7253,6 +7302,12 @@ function VoucherPageScreen() {
     }
     //Do post container creation processing
     this.processContainer = function() {
+        // document.getElementById('tile1').style.display = "none";
+        // document.getElementById('tile2').style.display = "none";
+        // document.getElementById('tile3').style.display = "none";
+        // document.getElementById('tile4').style.display = "inline";
+        // document.getElementById('tile5').style.display = "none";
+        // document.getElementById('tile6').style.display = "none";
         this.events.publish(this.id + "ContainerReady", this);
         form = document.getElementById("enter-code-form");
         form.addEventListener("submit", validateCode);

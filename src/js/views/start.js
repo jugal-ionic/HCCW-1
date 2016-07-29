@@ -11,7 +11,7 @@ Description:
 function StartScreen() {
 
 	var self = this,
-		endDate = new Date(2016, 6, 12, 0, 0, 0, 0),
+		endDate = new Date(2016, 6, 17, 0, 0, 0, 0),
 		now = new Date(),
 		contentLoadedCheck,
 		cssLoaded = false,
@@ -119,16 +119,16 @@ function StartScreen() {
 	self.routeUser = function() {
 
 		if (now >= endDate) {
-			return self.scrManager.addScreen(PromotionOverScreen, {standalone: true}, true);
+			//return self.scrManager.addScreen(PromotionOverScreen, {standalone: true}, true);
 		}
 
 		if (window.location.pathname === '/bars') {
 			return self.scrManager.addScreen(MapPageScreen, {standalone: true}, true);
 		}
 
-		if (window.location.pathname === '/privacy-policy') {
-			return self.scrManager.addScreen(PrivacyPolicyScreen, {standalone: true}, true);
-		}
+		// if (window.location.pathname === '/privacy-policy') {
+		// 	return self.scrManager.addScreen(PrivacyPolicyScreen, {standalone: true}, true);
+		// }
 
 		if (loggedIn && !sessionExpired && currentUser.attributes.drinkRedeemed) {
 			return self.scrManager.addScreen(ThankYouScreen);
@@ -154,7 +154,12 @@ function StartScreen() {
 					sessionExpired = false;
 				},
 				error: function(user, error) {
-					Parse.User.logOut();
+					Parse.User.logOut({
+						success: function(user) {
+								console.log(user);
+						},error: function(user, error) {
+								console.log(user,error);
+					}});
 					loggedIn = true;
 					sessionExpired = true;
 					console.warn(user, error);
@@ -173,7 +178,7 @@ function StartScreen() {
 		greenBackground.src = '/assets/img/backgrounds/mobile-footer-wrap-bg.png';
 
 		whiteBackground = new Image();
-		whiteBackground.src = '/assets/img/backgrounds/mobile-body-bg.png';
+		whiteBackground.src = '/assets/img/backgrounds/mobile-body-bg.jpg';
 
 		headerBackground = new Image();
 		headerBackground.src = '/assets/img/backgrounds/mobile-header-bg.png';

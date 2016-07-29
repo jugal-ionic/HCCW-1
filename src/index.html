@@ -5,16 +5,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Pernod Ricard Havana Club Cuban weekender</title>
 		<meta name="description" content="Register your name and email address, enter your location to find and choose your nearest participating bar, then show the bartender your voucher to claim a free Piña Colada!">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="msapplication-TileImage" content="/assets/img/app_icons/ms-touch-icon-144x144.png" />
 		<meta name="msapplication-TileColor" content="#ffa037" />
 
 		<meta property="og:title" content="Pernod Ricard Havana Club Cuban weekender"/>
 		<meta property="og:url" content="http://www.cubanweekender.co.uk" />
 		<meta property="og:description" content="Register your name and email address, enter your location to find and choose your nearest participating bar, then show the bartender your voucher to claim a free Piña Colada!" />
-		<meta property="fb:app_id" content="1792467990984660" />
+		<meta property="fb:app_id" content="305619816438350" />
 		<meta property="og:locale" content="en_GB" />
-		<meta property="og:image" content="http://www.cubanweekender.co.uk/assets/img/social_thumbnail.jpg" />
+		<meta property="og:image" content="//www.cubanweekender.co.uk/assets/img/social_thumbnail.jpg" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 
@@ -23,8 +23,8 @@
 		<meta name="twitter:creator" content="@MalibuUK">
 		<meta name="twitter:title" content="Pernod Ricard Havana Club Cuban weekender">
 		<meta name="twitter:description" content="Register your name and email address, enter your location to find and choose your nearest participating bar, then show the bartender your voucher to claim a free Piña Colada!">
-		<meta name="twitter:image" content="http://www.cubanweekender.co.uk/assets/img/social_thumbnail.jpg">
-
+		<meta name="twitter:image" content="//www.cubanweekender.co.uk/assets/img/social_thumbnail.jpg">
+		<link rel="stylesheet" href="/assets/css/VeneerTwo.css" />
 		<!-- build:style inline boilerplate -->
 		<link rel="stylesheet" href="/assets/css/boilerplate.css" />
 		<!-- /build -->
@@ -49,13 +49,39 @@
 
 		</script>
 
+<!--  <script type="text/javascript">
+    (function() {
+        var path = '//easy.myfonts.net/v2/js?sid=210662(font-family=Veneer+Two)&key=uy5Ec3qMaH',
+            protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+            trial = document.createElement('script');
+        trial.type = 'text/javascript';
+        trial.async = true;
+        trial.src = protocol + path;
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(trial);
+    })();
+</script> -->
 	</head>
-	<body>
-		
+	<body>	
+	<!-- tiles plugin -->
+	<!-- <div>
+	 
+	</div>
+	<div>
+	  <img class="tile2" id="tile2" src="assets/img/views/hc_tile2.png">
+	</div>
+	<div>
+	  <span></span>
+	</div>
+	<div class="tiles"></div>	
+	
+	<div class="tiles" id="tile4"><img class="pos4" src="assets/img/views/hc_tile4.png"></div>	
+	<div class="tiles" id="tile5"><img class="pos5" src="assets/img/views/hc_tile5.png"></div>
+	<div class="tiles" id="tile6"><img class="pos6" src="assets/img/views/hc_tile6.png"></div>	 -->	
+	<!--end tiles plugin -->
 		<!-- facebook login plugin -->
 		<div id="fb-root"></div>
 		<!-- end facebook login plugin -->
-
 		<div id="error-overlay">
 			<div id="close-btn">
 				<span class="icon">
@@ -65,16 +91,14 @@
 				</span>
 			</div>
 			<div class="small-wrapper">
-				<img src="assets/img/svg/nice-try.svg" alt="Nice try">
+				<img id="nice-try" src="assets/img/views/nice-try.png" alt="nice-try">
 				<p id="dateErrorMessage"></p>
 			</div>
-		</div>
-		
+		</div>		
 		<div class="app" id="app">
-
 			<div class="cookie-wrap" id="cookieWrap">
 				<div class="wrapped">
-					<p>We use cookies to improve your experience. By using this website you consent to their use as explained in our Cookies Policy</p>
+					<p>We use cookies to improve your experience. By using this website you consent to their use as explained in our<a href="http://havana-club.co.uk/en/content/privacy-policy-0" target="_new" > Cookies Policy</a></p>
 					<button class="btn" id="cookie-alert">
 						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-291 380 29.1 33">
 							<path d="M-271.6,396.6l8.5-10.1c0.7-0.8,1.1-1.7,1.1-2.7c0-1.1-0.4-2-1.1-2.7c-0.7-0.7-1.6-1-2.7-1c-1,0-1.9,0.3-2.7,1 l-8.2,9.7l-8.2-9.7c-0.7-0.7-1.6-1-2.7-1c-1,0-1.9,0.3-2.7,1c-0.7,0.8-1,1.7-1,2.7c0,1.1,0.3,2,1,2.7l8.5,10.1l-8.5,9.9 c-0.7,0.8-1,1.7-1,2.7c0,1.1,0.3,2,1,2.7c0.7,0.7,1.6,1,2.7,1c1,0,1.9-0.3,2.7-1l8.2-9.7l8.2,9.7c0.7,0.7,1.6,1,2.7,1 c1,0,1.9-0.3,2.7-1c0.7-0.8,1.1-1.7,1.1-2.7c0-1.1-0.4-2-1.1-2.7L-271.6,396.6z"/>
@@ -82,16 +106,12 @@
 					</button>
 				</div>
 			</div>
-
 		</div>
-
-
 		<script>
-
 			var fbIds = {
-				"127.0.0.1":"1792467990984660", // dev
-				"192.168.10.100":"1792467990984660", // dev
-				"hccw2016dd.parseapp.com":"1792467990984660"
+				"127.0.0.1":"305619816438350", // dev
+				"192.168.10.100":"305619816438350", // dev
+				"hccw2016dd.parseapp.com":"305619816438350"
 			},
 			fbId = '000000000000000000'; // default (invalid host)                
 
@@ -100,7 +120,6 @@
 			} else {
 				fbId = fbIds[window.location.host.replace('/', '')];
 			}
-
 			// Facebook widget START
 			window.fbAsyncInit = function() {
 				FB.init({
@@ -112,7 +131,6 @@
 					version: 'v2.3'
 				});
 			};
-
 			(function(d, s, id){
 				var js, fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id)) {return;}
@@ -120,9 +138,7 @@
 				js.src = "//connect.facebook.net/en_GB/sdk.js";
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
-
 		</script>
-
 		<script type="x-handlebars-template" id="start-template">
 			<div class="view start-view">
 				<h2>Loading</h2>
@@ -133,19 +149,19 @@
 				</div>
 			</div>
 		</script>
-
 		<script type="x-handlebars-template" id="age-gate-template">
+
 			<div class="view age-gate-view">
 				
-				<div class="header-wrap">
+				<div class="header">
 					<div class="wrapped title-wrap">
-						<img class="home-title" src="assets/img/welcome-hero.png" alt="Free Pi&ntilde;a Colada For Everyone">
+						<img class="home-title" src="assets/img/welcome-hero.png" alt="Pernod Ricard Havana Club Cuban weekender">
 					</div>
 				</div>
 				
 				<form id="age-validation-form" action="#" novalidate="novalidate">
 					<div class="wrapped-center">
-						<p class="age-gate-label">Just confirm you are over 18</p>
+						<p class="age-gate-label"><b>Just confirm you are over 18</b></p>
 						<input type="number" class="age-check-inputs" id="birth-day" placeholder="DD" required maxlength="2" min="1" max="31" step="1" value="1" />
 						<input type="number" class="age-check-inputs" id="birth-month" placeholder="MM" required maxlength="2" min="1" max="12" step="1" value="1" />
 						<input type="number" class="age-check-inputs" id="birth-year" placeholder="YYYY" required maxlength="4" min="1915" max="2015" />
@@ -161,6 +177,7 @@
 							</span>
 						</button>
 						<div class="or-dots-line"></div>
+
 						<button type="button" class="btn facebook" id="facebook-login-button">
 							<span class="label">Verify with Facebook</span>
 							<span class="icon">
@@ -168,46 +185,52 @@
 									<path d="M10.4,525.4v-99.8h33.5l5-38.9H10.4v-24.8c0-11.3,3.1-18.9,19.3-18.9l20.6,0v-34.8c-3.6-0.5-15.8-1.5-30-1.5 c-29.7,0-50,18.1-50,51.4v28.7h-33.6v38.9h33.6v99.8H10.4z"/>
 								</svg>
 							</span>
+							
 						</button>
 					</div>
 				</form>
 
 				<footer class="wrapped">
-					18+ years, 1 x free Havana Club Cuban Cocktail* upon presentation of mobile e-voucher. *Cuban Cocktail will be either a Havana Club Mojito or Cuba Libre. Drink option served will be subject to bars discretion.  <a href="https://pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" id="tandcLink" target="_blank" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms &amp; Conditions</a>. <a href="http://havana-club.co.uk/en/content/privacy-policy-0" title="Privacy Policy" id="privacy-policy-link">Privacy Policy</a>.
+				<p>
+					<b>18+ years, 1 x free Havana Club Cuban Cocktail* upon presentation of mobile e-voucher. *Cuban Cocktail will be either a Havana Club Mojito or Cuba Libre. Drink option served will be subject to bars discretion. 
+					<div class="tc_pp"> <a href="//pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" id="tandcLink" target="_new" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms &amp; Conditions</a>. <a href="//havana-club.co.uk/en/content/privacy-policy-0" target="_new"  onclick="ga('send', 'event', 'Privacy Policy', 'Viewed');">Privacy Policy</a>.</div></b></p>
+					<p class="intro-text middle">
+					<a href="//drinkaware.co.uk" target="_new">
+					<img id="footer-text" src="assets/img/views/footer-text.png" alt="footer-text"></a>
+					</p>
 				</footer>
+				
 			</div>
 		</script>
-
 		<script type="x-handlebars-template" id="user-details-template">
 			<div class="view user-details-view">
-
-				<div class="header-wrap">
+				<div class="header">
 					<div class="wrapped">
-						<img id="details-title" src="assets/img/details-title.png" alt="National Pi&ntilde;a Colada Day">
+						<img id="details-title" src="assets/img/details-title.png" alt="Pernod Ricard Havana Club Cuban weekender">
 					</div>
-				</div>
-				
-				<div class="wrapped">
-				
-					<img id="details-subtitle" src="assets/img/details-header.png" alt="National Pi&ntilde;a Colada Day">
-
+				</div>				
+				<div class="wrapped">				
+					<img id="details-subtitle" src="assets/img/details-header.png" alt="details-header">
 					<form action="#" id="detailsForm" novalidate="novalidate">
 						<label>First Name <sup class="orange">*</sup></label>
 						<div class="input-wrap">
-							<input type="text" id="fullNameInput" placeholder="First Name" required maxlength="32" />
+						
+							<input type="text" id="fullNameInput" placeholder="First Name" required maxlength="32"> </input>
 						</div>
+						
 						<span class="error" id="nameError"></span>
 						<label>Email <sup class="orange">*</sup></label>
 						<div class="input-wrap">
 							<input type="email" id="emailInput" placeholder="Email" required maxlength="64" />
+						
 						</div>
+						
 						<span class="error" id="emailError"></span>
 						<label>Postcode</label>
 						<div class="input-wrap">
 							<input type="text" id="postcodeInput" placeholder="Postcode" maxlength="10" />
 						</div>
-						<span class="error" id="postcodeError"></span>
-						
+						<span class="error" id="postcodeError"></span>						
 						<div class="checkbox-wrap">
 							<div class="checkbox-box">
 								<label class="css-checkbox">
@@ -218,7 +241,6 @@
 							<span class="checkbox-label">Agree <a href="https://pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" target="_blank" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms &amp; Conditions</a></span>
 							<span class="error tac" id="generalError"></span>
 						</div>
-
 						<div class="checkbox-wrap">
 							<div class="checkbox-box">
 								<label class="css-checkbox">
@@ -226,16 +248,12 @@
 									<div class="checkbox-visual"></div>
 								</label>
 							</div>
-							<span class="checkbox-label">Sign me up! I'd love to get the latest news, offers and competition from Malibu.</span>
-						</div>
-
-					
-						<div class="clearfix"></div>
-						
+							<span class="checkbox-label">Sign me up! I’d love to get the latest news, offers and competitions from Havana Club</span>
+						</div>					
+						<div class="clearfix"></div>						
 						<div class="wrapped">
 							<span class="required"><sup>*</sup>Required fields</span>
-						</div>
-						
+						</div>						
 						<div class="wrapped">
 							<button type="submit" class="btn register-btn" id="regular-login">
 								<span class="label">Submit</span>
@@ -246,35 +264,31 @@
 								</span>
 							</button>
 						</div>
-
-					</form>
-					
+					</form>					
 				</div>
-
 			</div>
 		</script>
 
 		<script type="x-handlebars-template" id="home-page-template">
 			<div class="view home-view">
-				<header>
-					<div class="headers-wrap">
-						<img src="assets/img/home-header.png" alt="National Pi&ntilde;a Colada Day">
-						<div class="clearfix"></div>
-					</div>
-				</header>
 				<div class="page-content">
 
 					<div class="wrapped">
-						<img id="whooop-title" src="assets/img/svg/whooop.svg" alt="Whooop!">
+						<img id="whooop-title" src="assets/img/views/whooop.png" alt="Whooop!">
 					
-						<p class="intro-text">
-							Now get ready to celebrate National Pi&ntilde;a Colada Day with us on the 10<sup>th</sup>/ 11<sup>th</sup> of July!!
+						<p class="intro-text middle">
+							<img  id="Enjoy" src="assets/img/views/Enjoy.png" alt="Enjoy">
+							
 						</p>
 
 						<div class="steps-wrap">
 							<div class="steps-number step1"></div>
+							
+							<div class="steps-text">Find a bar</div>
+							
+						</div>
 							<div class="steps-text">
-								Find a bar
+								
 								<button type="button" class="btn register-btn" id="find-a-bar-btn">
 									<span class="label">Find a bar</span>
 									<span class="icon">
@@ -284,60 +298,57 @@
 									</span>
 								</button>
 							</div>
-						</div>
-
 						<div class="dots-border"></div>
 
 						<div class="steps-wrap">
 							<div class="steps-number step2"></div>
-							<div class="steps-text">
-								Show this voucher to bartender
-								<img src="assets/img/voucher.png" id="voucher-cta" alt="Voucher">
-							</div>
+							<div class="steps-text">Show this voucher to bartender</div>
+							
 
 						</div>
-						
+						<div class="steps-text">
+								
+								<img src="assets/img/voucher.png" id="voucher-cta" alt="Voucher">
+							</div>
 						<div class="dots-border"></div>
 						
 						<div class="steps-wrap">
 							<div class="steps-number step3"></div>
-							<div class="steps-text">Enjoy your free pi&Ntilde;a colada!<span>&#9786;</span></div>
+							<div class="steps-text">Enjoy your free Havana Club Cuban Cocktail!</div>
 						</div>
 						
 						<div class="dots-border"></div>
 
 						<div class="social-wrap">
-							<p class="social-text">
-								A Pina Colada is always best served with friends, so why not invite yours?
+							<p class="intro-text small">
+								<img id="Enjoy" src="assets/img/views/HCCocktialCopy.png" alt="Enjoy">
 							</p>
-							<div class="social-icons">
-								<div class="centered">
-									<a href="https://www.facebook.com/sharer/sharer.php?app_id=1792467990984660&u=http%3A%2F%2Fwww.cubanweekender.co.uk%2F&display=popup" target="_blank" class="btn square facebook"onclick="ga('send', 'event', 'Social', 'Facebook', 'share');">
-										<span class="icon">
-											<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-63.3 306.6 113.6 218.8">
-												<path d="M10.4,525.4v-99.8h33.5l5-38.9H10.4v-24.8c0-11.3,3.1-18.9,19.3-18.9l20.6,0v-34.8c-3.6-0.5-15.8-1.5-30-1.5 c-29.7,0-50,18.1-50,51.4v28.7h-33.6v38.9h33.6v99.8H10.4z"/>
-											</svg>
-										</span>
-									</a>
-									<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.cubanweekender.co.uk" target="_blank" class="btn square twitter" onclick="ga('send', 'event', 'Social', 'Twitter', 'share');">
-										<span class="icon">
-											<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="788.7 2036 612.1 497.5">
-												<path d="M1400.8,2095.3c-22.5,10-46.7,16.8-72.1,19.6c26.1-15.7,45.7-40,55.3-69.6c-24.3,14.3-51,25-79.7,30.3 c-22.8-24.3-55.7-39.6-91.8-39.6c-69.2,0-125.7,56.4-125.7,125.7c0,10,1.1,19.3,3.2,28.5c-104.3-5.4-197.1-55.3-258.9-131.4 c-10.7,18.6-17.1,40-17.1,63.2c0,43.5,22.1,82.2,56,104.7c-20.7-0.7-40-6.4-56.7-15.7c0,0.4,0,1.1,0,1.4 c0,60.7,43.2,111.8,100.7,123.2c-10.7,2.9-21.8,4.3-33.2,4.3c-8.2,0-16.1-0.7-23.6-2.1c16.1,50,62.4,86.5,117.5,87.2 c-42.8,33.5-97.2,53.9-156,53.9c-10,0-20-0.7-30-1.8c55.7,35.7,121.8,56.4,192.4,56.4c231.1,0,357.4-191.4,357.4-357.4 c0-5.4,0-10.7-0.4-16.4C1362.6,2142.8,1384,2120.6,1400.8,2095.3L1400.8,2095.3z"/>
-											</svg>
-										</span>
-									</a>
-									<a href="mailto:?subject=Pernod%20Ricard%20Havana%20Club%20Cuban%20weekender&amp;body=Enjoy%20a%20free%20pina%20colada!%20Come%20celebrate%20with%20us%20at%20http%3A%2F%2Fwww.cubanweekender.co.uk" target="_blank" class="btn square email" onclick="ga('send', 'event', 'Social', 'Email', 'share');">
-										<span class="icon">
-											<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 181.8 612 428.4">
-												<path d="M48.4,207.1l220.4,174.6c10,7.9,23.8,11.4,37.2,10.8c13.4,0.7,27.1-2.8,37.1-10.8l220.4-174.6 c17.7-13.9,13.7-25.3-8.7-25.3H306H57.2C34.8,181.8,30.8,193.2,48.4,207.1z"/>
-												<path d="M579.5,253.2L338.6,436.1c-9,6.8-20.8,10.1-32.6,9.9c-11.8,0.2-23.6-3.2-32.6-9.9L32.5,253.2 C14.6,239.6,0,246.9,0,269.3v300.1c0,22.4,18.4,40.8,40.8,40.8H306h265.2c22.4,0,40.8-18.4,40.8-40.8V269.3 C612,246.9,597.4,239.6,579.5,253.2z"/>
-											</svg>
-										</span>
-									</a>
-								</div>
-							</div>
+							<div id="sharing-block">
+							<a href="https://www.facebook.com/sharer/sharer.php?app_id=305619816438350&u=http%3A%2F%2Fwww.cubanweekender.co.uk%2F&display=popup" target="_blank" class="btn square facebook" onclick="ga('send', 'event', 'Social', 'Facebook', 'share');">
+								<span class="icon">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-63.3 306.6 113.6 218.8">
+										<path d="M10.4,525.4v-99.8h33.5l5-38.9H10.4v-24.8c0-11.3,3.1-18.9,19.3-18.9l20.6,0v-34.8c-3.6-0.5-15.8-1.5-30-1.5 c-29.7,0-50,18.1-50,51.4v28.7h-33.6v38.9h33.6v99.8H10.4z"/>
+									</svg>
+								</span>
+							</a>
+							<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.cubanweekender.co.uk" target="_blank" class="btn square twitter" onclick="ga('send', 'event', 'Social', 'Twitter', 'share');">
+								<span class="icon">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="788.7 2036 612.1 497.5">
+										<path d="M1400.8,2095.3c-22.5,10-46.7,16.8-72.1,19.6c26.1-15.7,45.7-40,55.3-69.6c-24.3,14.3-51,25-79.7,30.3 c-22.8-24.3-55.7-39.6-91.8-39.6c-69.2,0-125.7,56.4-125.7,125.7c0,10,1.1,19.3,3.2,28.5c-104.3-5.4-197.1-55.3-258.9-131.4 c-10.7,18.6-17.1,40-17.1,63.2c0,43.5,22.1,82.2,56,104.7c-20.7-0.7-40-6.4-56.7-15.7c0,0.4,0,1.1,0,1.4 c0,60.7,43.2,111.8,100.7,123.2c-10.7,2.9-21.8,4.3-33.2,4.3c-8.2,0-16.1-0.7-23.6-2.1c16.1,50,62.4,86.5,117.5,87.2 c-42.8,33.5-97.2,53.9-156,53.9c-10,0-20-0.7-30-1.8c55.7,35.7,121.8,56.4,192.4,56.4c231.1,0,357.4-191.4,357.4-357.4 c0-5.4,0-10.7-0.4-16.4C1362.6,2142.8,1384,2120.6,1400.8,2095.3L1400.8,2095.3z"/>
+									</svg>
+								</span>
+							</a>
+							<a href="mailto:?subject=Pernod%20Ricard%20Havana%20Club%20Cuban%20weekender&amp;body=Enjoy%20a%20free%20pina%20colada!%20Come%20celebrate%20with%20us%20at%20http%3A%2F%2Fwww.cubanweekender.co.uk" target="_blank" class="btn square email" onclick="ga('send', 'event', 'Social', 'Email', 'share');">
+								<span class="icon">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 181.8 612 428.4">
+										<path d="M48.4,207.1l220.4,174.6c10,7.9,23.8,11.4,37.2,10.8c13.4,0.7,27.1-2.8,37.1-10.8l220.4-174.6 c17.7-13.9,13.7-25.3-8.7-25.3H306H57.2C34.8,181.8,30.8,193.2,48.4,207.1z"/>
+										<path d="M579.5,253.2L338.6,436.1c-9,6.8-20.8,10.1-32.6,9.9c-11.8,0.2-23.6-3.2-32.6-9.9L32.5,253.2 C14.6,239.6,0,246.9,0,269.3v300.1c0,22.4,18.4,40.8,40.8,40.8H306h265.2c22.4,0,40.8-18.4,40.8-40.8V269.3 C612,246.9,597.4,239.6,579.5,253.2z"/>
+									</svg>
+								</span>
+							</a>
+							
 						</div>
-
+						<div class="clearfix"></div>
 						<a class="btn cta" href="#" id="calendarCTA" target="_blank">
 							<span class="label">Add to calendar</span>
 							<span class="icon">
@@ -346,11 +357,11 @@
 								</svg>
 							</span>
 						</a>
-					
+						</div>
 					</div>
 
 					<footer class="wrapped">
-						*18+ years, 1 x free Malibu Pi&ntilde;a Colada upon presentation of mobile e-voucher, closing date 11.07.15. <a href="https://pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" target="_blank" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms & Conditions</a>. <a href="http://havana-club.co.uk/en/content/privacy-policy-0" title="Privacy Policy" id="privacy-policy-link">Privacy Policy</a>.
+					<b>18+ years, 1 x free Havana Club Cuban Cocktail* upon presentation of mobile e-voucher. *Cuban Cocktail will be either a Havana Club Mojito or Cuba Libre. Drink option served will be subject to bars discretion. <div class="tc_pp"> <a href="https://pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" id="tandcLink" target="_new" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms &amp; Conditions</a>. <a href="//havana-club.co.uk/en/content/privacy-policy-0" target="_new"  onclick="ga('send', 'event', 'Privacy Policy', 'Viewed');">Privacy Policy</a>.</div></b>
 					</footer>
 				</div>
 			</div>
@@ -359,8 +370,8 @@
 		<script type="x-handlebars-template" id="promotion-over-template">
 			<div class="view home-view">
 				<header>
-					<div class="headers-wrap">
-						<img src="assets/img/home-header.png" alt="National Pi&ntilde;a Colada Day">
+					<div class="home-header">
+						<img src="assets/img/home-header.png" alt="Pernod Ricard Havana Club Cuban weekender">
 						<div class="clearfix"></div>
 					</div>
 				</header>
@@ -371,13 +382,13 @@
 						<p>&nbsp;</p>
 						<p>&nbsp;</p>
 						<p class="intro-text">
-							Sorry, this year's National Pina Colada day is over, but go to <a href="http://www.malibu.co.uk" target="_blank">Malibu.co.uk</a> to find out more from Malibu
+							Sorry, this year's Cuban weekender is over, but go to <a href="//www.havana-club.co.uk" target="_blank">havana-club.co.uk</a> to find out more from Havana Club
 						</p>
 					
 					</div>
 
 					<footer class="wrapped">
-						<a href="https://pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" target="_blank" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms & Conditions</a> <a href="http://havana-club.co.uk/en/content/privacy-policy-0" title="Privacy Policy" id="privacy-policy-link">Privacy Policy</a>
+					<b>18+ years, 1 x free Havana Club Cuban Cocktail* upon presentation of mobile e-voucher. *Cuban Cocktail will be either a Havana Club Mojito or Cuba Libre. Drink option served will be subject to bars discretion. <div class="tc_pp"> <a href="https://pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" id="tandcLink" target="_new" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms &amp; Conditions</a>. <a href="//havana-club.co.uk/en/content/privacy-policy-0" target="_new"  onclick="ga('send', 'event', 'Privacy Policy', 'Viewed');">Privacy Policy</a>.</div></b>
 					</footer>
 				</div>
 			</div>
@@ -409,7 +420,7 @@
 
 				<header>
 					<button type="button" class="btn back" id="backBtn"></button>
-					<img src="assets/img/mobile-header-title.png" alt="National Pi&ntilde;a Colada Day">
+					<img src="assets/img/mobile-header-title.png" alt="Pernod Ricard Havana Club Cuban weekender">
 				</header>
 
 				<div id="bar-details-overlay">
@@ -472,15 +483,14 @@
 
 		<script type="x-handlebars-template" id="enter-code-template">
 			<div class="view enter-code-view">
-				
 				<header>
 					<button type="button" class="btn back" id="backBtn"></button>
-					<img src="assets/img/mobile-header-title.png" alt="National Pi&ntilde;a Colada Day">
+					<img src="assets/img/mobile-header-title.png" alt="Pernod Ricard Havana Club Cuban weekender">
 				</header>
-
 				<div class="wrapped">
 					
-					<p class="intro-text">Now show the nice bartender your phone so they can enter their colada code.</p>
+					<p class="intro-text">
+						<img id="details-subtitle" src="assets/img/views/HC_canterino.png" alt="details-header"></p>
 
 					<form action="#" novalidate="novalidate" id="enter-code-form">
 						<div>
@@ -490,7 +500,7 @@
 							<input type="number" name="digit4" placeholder="-" class="code-input" required maxlength="1" min="0" max="9">
 						</div>
 
-						<button type="submit" class="btn">
+						<button id="save" type="submit" disabled="true" class="btn">
 							<span class="label">Validate</span>
 							<span class="icon">
 								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-285 361 39.6 70.9">
@@ -498,7 +508,7 @@
 								</svg>
 							</span>
 						</button>
-
+						
 					</form>
 
 				</div>
@@ -508,19 +518,24 @@
 		<script type="x-handlebars-template" id="thank-you-template">
 			<div class="view thank-you-view">
 				<header>
-					<div class="headers-wrap">
-						<img src="assets/img/home-header.png" alt="National Pi&ntilde;a Colada Day">
+					<div class="home-header">
+						<img src="assets/img/mobile-header-title.png" alt="Pernod Ricard Havana Club Cuban weekender">
 						<div class="clearfix"></div>
 					</div>
 				</header>
 				<div class="page-main">
 					<div class="wrapped">
 						<img id="thanks-title" src="assets/img/thanks-header.png" alt="Thanks">
-						<p class="intro-text"><span>{{ userName }}</span>, who do you know that would love a free Malibu Pi&ntilde;a Colada? Let's share the love.</p>
-						<div class="dots-border"></div>
+						<p class="intro-text-name">{{ userName }}</p>
+						
+						<img id="text1" class="text1" src="assets/img/views/HC_Name_thanks.png" alt="Thanks">
+					</div>
+				</div>
 
+				<footer class="wrapped">
+				<div class="dots-border"></div>
 						<div id="sharing-block">
-							<a href="https://www.facebook.com/sharer/sharer.php?app_id=1792467990984660&u=http%3A%2F%2Fwww.cubanweekender.co.uk%2F&display=popup" target="_blank" class="btn square facebook" onclick="ga('send', 'event', 'Social', 'Facebook', 'share');">
+							<a href="https://www.facebook.com/sharer/sharer.php?app_id=305619816438350&u=http%3A%2F%2Fwww.cubanweekender.co.uk%2F&display=popup" target="_blank" class="btn square facebook" onclick="ga('send', 'event', 'Social', 'Facebook', 'share');">
 								<span class="icon">
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-63.3 306.6 113.6 218.8">
 										<path d="M10.4,525.4v-99.8h33.5l5-38.9H10.4v-24.8c0-11.3,3.1-18.9,19.3-18.9l20.6,0v-34.8c-3.6-0.5-15.8-1.5-30-1.5 c-29.7,0-50,18.1-50,51.4v28.7h-33.6v38.9h33.6v99.8H10.4z"/>
@@ -542,13 +557,15 @@
 									</svg>
 								</span>
 							</a>
+							
 						</div>
-					</div>
-				</div>
-				<footer>
-					{{^userSubscribedNewsletter}}
+				{{^userSubscribedNewsletter}}
 					<div class="wrapped" id="newsletter-signup-section">
-						<p>If you loved your yummy Malibu Pina Colada sign up now to get the latest news, offers, competition and freebies from Malibu.</p>
+						<div class="clearfix"></div>
+						<div class="dots-border"></div>
+							<p class="intro-text">
+								<img id="HC_refershingCocktail" src="assets/img/views/HC_refershingCocktail.png" alt="Thanks">
+							</p>
 						<button type="button" class="btn" id="subscribe-newsletter-btn">
 							<span class="label">Subscribe</span>
 							<span class="icon">
@@ -558,11 +575,10 @@
 							</span>
 						</button>
 					</div>
-					{{/userSubscribedNewsletter}}
-					<div class="orangeLink"><a href="http://www.maliburumdrinks.com/uk/" target="_blank" title="For drinks & competitions">For drinks & competitions</a></div>
-					<p class="wrapped" id="ending-text">
-					Happy national pina colada day, love malibu x</p>
-					<div class="clearfix"></div>
+				{{/userSubscribedNewsletter}}
+					<p class="intro-text middle">
+					<a href="//drinkaware.co.uk" target="_new"><img id="footer-text" src="assets/img/views/footer-text.png" alt="footer-text"></a>
+					</p>
 				</footer>
 			</div>
 		</script>
@@ -774,7 +790,7 @@
 			</div>
 		</script>
 
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry&amp;sensor=true?key=AIzaSyDlBipLPUenqdn-A2ibHnXf6M_XTQL4Tiw"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVW1MtJ2jf19-gGlNKX4vGfaMZyQoUyT4&amp;libraries=geometry,places"></script>
 		<script src="/assets/js/main.js"></script>
 
 		<script>

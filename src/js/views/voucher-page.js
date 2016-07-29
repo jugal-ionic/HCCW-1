@@ -27,10 +27,12 @@ function VoucherPageScreen() {
 		self.scrManager.addScreen(ThankYouScreen);
 	}
 
-	function codeNotValid(invalidPin) {
-
+	function codeNotValid(e,invalidPin) {
+		e.preventDefault();
 		alert('The code you entered is not valid.');
-
+		//self.scrManager.addScreen(VoucherPageScreen);
+		//window.location.reload();
+		//self.scrManager.addScreen(VoucherPageScreen);
 	}
 
 	function codeIsValid(barObject) {
@@ -97,7 +99,7 @@ function VoucherPageScreen() {
 		for (i = 0; i < fields.length; i++) {
 			if (fields[i].tagName.toLowerCase() === 'input') {
 				if (!validator.field(fields[i]).valid) {
-					return codeNotValid();
+					return codeNotValid(e);
 				} else {
 					code += fields[i].value;
 				}
@@ -133,7 +135,12 @@ function VoucherPageScreen() {
 				field.blur();
 			}, 10);
 		}
-
+		var digit4 = document.getElementById('digit4');
+		if(digit4>=0)
+		{
+			save = document.getElementById('save');
+			save.disabled=false;
+		}
 	}
 
 	function limitFieldInput(e) {
@@ -152,7 +159,12 @@ function VoucherPageScreen() {
 
 	//Do post container creation processing
 	this.processContainer = function() {
-
+		// document.getElementById('tile1').style.display = "none";
+		// document.getElementById('tile2').style.display = "none";
+		// document.getElementById('tile3').style.display = "none";
+		// document.getElementById('tile4').style.display = "inline";
+		// document.getElementById('tile5').style.display = "none";
+		// document.getElementById('tile6').style.display = "none";
 		this.events.publish(this.id + 'ContainerReady', this);
 
 		form = document.getElementById('enter-code-form');

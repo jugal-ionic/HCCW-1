@@ -1,7 +1,5 @@
 .thank-you-view {
-	background-image: image-url("backgrounds/mobile-footer-wrap-bg.png");
-	background-size: default;
-	background-position: 0px -24px;
+	background-image: url('/assets/img/backgrounds/bg3.jpg?1468099984');
 
 	header {
 		position: relative;
@@ -9,9 +7,7 @@
 		left: 0px;
 		width: 100%;
 		height: 60px;
-		background-image: image-url('backgrounds/mobile-header-bg.png');
-		background-repeat: repeat-x;
-		background-size: default;
+		
 		z-index: 10;
 
 		.headers-wrap {
@@ -29,44 +25,58 @@
 
 	.page-main {
 		position: relative;
-		padding-top: 55px;
-		background-image: image-url("backgrounds/mobile-body-bg.png");
-		background-position: 0px -14px;
-		z-index: 0;
-
-		&::after {
-			content: "";
-			display: block;
-			position: absolute;
-			bottom: -6px;
-			left: 0;
-			height: 15px;
-			width: 100%;
-			background-image: image-url('backgrounds/background-transition-white-to-green.png');
-			background-position: center;
-			z-index: 1;
-		}
+		padding-top: 0px;
+		
 	}
 
 	.intro-text {
 		font-size: 26px;
+		margin: 0;
+	}
+
+	.intro-text-name{
+		font-size: 35px;
+		font-family:'VeneerTwo';		
+		color: $blue-dark;
+		margin: 5px;
 	}
 
 	#thanks-title {
 		margin: 30px 0 10px;
 	}
 
+	.text1,.tile3 {  
+		position: relative;
+	}
+	.tile3 {
+		z-index: 0;
+	    top: 125px;
+	    left: 169px;
+	    width: 107px;
+	    height: 122px;
+	}
+	 .text1 {
+		z-index: 1;
+		margin-top: -116px;
+	}
+	
+	#HC_Name_thanks{
+			margin: 0 0 10px;
+	}
+	#HC_refershingCocktail{
+		z-index:11;
+			margin: 0 0 10px;
+	}
 	p {
 		text-align: center;
 	}
 
 	#sharing-block {
 		clear: both;
-		width: 220px;
+		width: 280px;
 		margin: 0 auto;
-		padding: 30px 0;
+		padding-left: 34px;
 		text-align: center;
-
 		.btn {
 			display: inline-block;
 			margin: 0 12px;
@@ -78,16 +88,19 @@
 
 		.subscribe-btn {
 			margin: 20px auto 0;
+			background-color:#084c80;
 		}
 
 		p {
-			@include geox-regular();
-			color: $colourTextNeg;
-			padding-top: 20px;
-			font-size: 16px;
-
+			padding-top: 10px;
+			clear: both;
+			color: $blue-dark;
+			text-align: center;
+			font-size:30px;
+    		font-weight: bold;
+			margin-bottom: 5px;
 			&#ending-text {
-				@include signpainter;
+				
 				font-style: italic;
 					letter-spacing: 0.2mm;
 					font-size: 18px;

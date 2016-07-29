@@ -44,9 +44,9 @@ function HomePageScreen() {
 			// self.scrManager.addScreen(VoucherPageScreen);
 			var errorWrapper = document.getElementById('error-overlay'),
 				errorMessage = document.getElementById('dateErrorMessage'),
-				voucherError = 'You’re keen! It’s not quite time to enjoy a Piña Colada just yet though, you’ll have to wait until the 10th and 11th of July.';
+				voucherError = '<p class="intro-text middle"><span class="upper blue">Y</span><span class="lower blue">ou’re keen! it’s not quite time to enjoy a </span><span class="upper red">H</span><span class="lower red">avana Club cuban cocktail </span><span class="lower blue">just yet though, you’ll have to wait until the 18th of august.</span></p>';
 
-			errorMessage.textContent = voucherError;
+			errorMessage.innerHTML = voucherError;
 			errorWrapper.style.display = 'block';
 
 		}
@@ -71,11 +71,17 @@ function HomePageScreen() {
 
 	//Do post container creation processing
 	this.processContainer = function() {
-
+		
+		// document.getElementById('tile1').style.display = "none";
+		// document.getElementById('tile2').style.display = "none";
+		// document.getElementById('tile3').style.display = "none";
+		// document.getElementById('tile4').style.display = "none";
+		// document.getElementById('tile5').style.display = "none";
+		// document.getElementById('tile6').style.display = "none";
 		this.events.publish(this.id + 'ContainerReady', this);
 
 		document.getElementById("find-a-bar-btn").addEventListener("click", loadMapPage);
-		document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
+		//document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
 		
 		voucherCTA = document.getElementById("voucher-cta");
 
@@ -91,14 +97,14 @@ function HomePageScreen() {
 			ua = navigator.userAgent.toLowerCase(),
 			isAndroid = ua.indexOf("android") > -1;
 
-		if(ua.indexOf('ios') >= 0 || ua.indexOf('os x') >= 0 || ua.indexOf('macintosh') >= 0) {
+		//if(ua.indexOf('ios') >= 0 || ua.indexOf('os x') >= 0 || ua.indexOf('macintosh') >= 0) {
 			calendarCTA.href = "/calendar/mnpcd.ics";
 			calendarCTA.addEventListener('click', function() {
 				ga('send', 'event', 'Calendar', 'click');
 			});
-		} else {
-			calendarCTA.style.display = "none";
-		}
+		//} else {
+		//	calendarCTA.style.display = "none";
+		//}
 
 		return this.container;
 

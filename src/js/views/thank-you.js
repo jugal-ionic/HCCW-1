@@ -36,7 +36,8 @@ function ThankYouScreen() {
 
 	//Do post container creation processing
 	this.processContainer = function() {
-
+		
+		
 		subscribeSection = document.getElementById('newsletter-signup-section');
 
 		if (subscribeSection) {

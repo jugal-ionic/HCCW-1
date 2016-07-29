@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 				fonts: {
 					files: [{
 						cwd: srcDir + 'fonts',
-						src: '**/*.{eot,svg,ttf,woff}',
+						src: '**/*.{eot,svg,ttf,woff,otf,woff2,css}',
 						dest: distDir + 'fonts/',
 						expand: true
 					}]

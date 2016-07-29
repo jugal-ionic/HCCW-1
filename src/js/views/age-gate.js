@@ -27,15 +27,12 @@ function AgeGateScreen() {
 	// added function to set custom button and to be able to get the users data
 	function fb_login(){
 		FB.login(function(response) {
-
 			if (!response.authResponse) {
 				return console.log('User cancelled login or did not fully authorize.');
 			}
 			
 		FB.api('/me?fields=age_range,first_name,last_name,email', function(response) {
-
 		    console.log(response);
-
 		    var user_email = response.email,
 		     user_firstName = response.first_name,
 		     user_lastName = response.last_name,
@@ -46,42 +43,33 @@ function AgeGateScreen() {
 		     // old enough
 		     currentYear = new Date().getFullYear(),
 		     year = currentYear - response.age_range.min;
-
 		    currentUser.set('email', user_email);
 		    currentUser.set('name', user_firstName + ' ' + user_lastName);
 		    dayField.value = day;
 		    monthField.value = month;
 		    yearField.value = year;
-
 		    validateInputs();
-
 			});
-
 		}, {
 			scope: 'email,user_birthday'
 		});
 	}
 	// Facebook widget END
-
 	function loadUserDetailsPage(){
 		self.scrManager.addScreen(UserDetailsScreen);
 	}
 
 	function validateInputs(e) {
-
 		if (e && e.preventDefault) {
 			e.preventDefault();
 		}
-
 		if (isSubmitting) {
 			return;
 		}
-
 		isSubmitting = true;
-
 		var errorWrapper = document.getElementById('error-overlay'),
 			errorMessage = document.getElementById('dateErrorMessage'),
-			generalDateMessage = 'but you must be 18 or over to celebrate National Piña Colada Day with us.';
+			generalDateMessage = '<p class="intro-text middle"><span class="lower blue">but </span><span class="upper blue">Y</span><span class="lower blue">ou must be 18 or over to </span><span class="upper red">FREE </span><span class="lower red">Havana Club <br>Cuban Cocktail </span><span class="lower blue"> with us.</span></p>';
 		if(parseInt(yearField.value,10)==1998 && parseInt(monthField.value,10) == 1 && parseInt(dayField.value,10) == 1)
 			{
 				document.getElementById('birth-month').value='';
@@ -93,12 +81,11 @@ function AgeGateScreen() {
 			}
 		if (!formValidation.field(dayField).valid || !formValidation.field(monthField).valid || !formValidation.field(yearField).valid) {
 
-			errorMessage.textContent = generalDateMessage;
+			errorMessage.innerHTML = generalDateMessage;
 			errorWrapper.style.display = 'block';
 			isSubmitting = false;
 			return false;
 		}
-
 		var minAge = 18,
 			dayVal = dayField.value,
 			monthVal = (monthField.value) - 1,
@@ -106,42 +93,30 @@ function AgeGateScreen() {
 			today = new Date(),
 			minBirthDateUnix = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate()+1, 12, 0, 0, 0).getTime(),
 			usersBirthday = new Date(yearVal, monthVal, dayVal, 12, 0, 0, 0),
-			usersBirthdayUnix = usersBirthday.getTime();
-			
+			usersBirthdayUnix = usersBirthday.getTime();			
 		if (usersBirthdayUnix - minBirthDateUnix < 0) {
-
 			ga('send', 'event', 'Age Gate', 'Submit', 'submit success');
-
 			currentUser.set('birthday', usersBirthday);
 			loadUserDetailsPage();
 
 		} else {
-
 			ga('send', 'event', 'Age Gate', 'Submit', 'submit fail');
-
-			errorMessage.textContent = generalDateMessage;
+			errorMessage.innerHTML = generalDateMessage;
 			errorWrapper.style.display = 'block';
 			isSubmitting = false;
-
 			return false;
 		}
-
 		return true;
 	}
 
 	function limitFieldInput(e) {
-
 		var target = e.target,
 			maxLength = target.getAttribute('maxlength');
-
 		if (maxLength && target.value.length >= maxLength) {
 			e.preventDefault();
 			return false;
-		}
-
-		
+		}		
 		return true;
-
 	}
 
 	function loadPrivacyPolicy(e){
@@ -150,21 +125,16 @@ function AgeGateScreen() {
 	}
 
 	function validateFieldInput(e) {
-
 		var key = e.keyCode,
 			field = e.target,
 			nextSibling = field.nextElementSibling,
 			maxLength = field.getAttribute('maxlength');
-
 		if ((e.charCode < 48 || e.charCode > 57 || field.value.length >= parseInt(maxLength, 10)) && key !== 8 && key !== 13 && key !== 9) {
 			return false;
-
 		}
-
 		if (key === 8) {
 			return true;
 		}
-
 		if(field.value.length >= (maxLength - 1)){
 			if (nextSibling && nextSibling.tagName.toLowerCase() === 'input') {
 				setTimeout(function() {
@@ -191,30 +161,28 @@ function AgeGateScreen() {
 					return false;
 				}
 		return true;
-		}
-	
+		}	
 	//Do post container creation processing
 	this.processContainer = function() {
-
+		
+		// document.getElementById('tile1').style.display = "none";
+		// document.getElementById('tile2').style.display = "none";
+		// document.getElementById('tile3').style.display = "none";
+		// document.getElementById('tile4').style.display = "none";
+		// document.getElementById('tile5').style.display = "none";
+		// document.getElementById('tile6').style.display = "inline";
 		this.events.publish(this.id + 'ContainerReady', this);
-
 		dayField = document.getElementById('birth-day');
 		monthField = document.getElementById('birth-month');
 		yearField = document.getElementById('birth-year');
-
 		ageGateForm = document.getElementById('age-validation-form');
 		ageGateForm.addEventListener('submit', validateInputs);
 		ageGateForm.addEventListener('keypress', validateFieldInput);
 		ageGateForm.addEventListener('keypress', limitFieldInput);
 		ageGateForm.addEventListener('keyup', validateFieldInputYear);
-
 		document.getElementById("facebook-login-button").addEventListener("click", fb_login);
-		document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
-
+		//document.getElementById("privacy-policy-link").addEventListener("click", loadPrivacyPolicy);
 		return this.container;
-
 	}
-
 }
-
 AgeGateScreen.prototype = new Screen();

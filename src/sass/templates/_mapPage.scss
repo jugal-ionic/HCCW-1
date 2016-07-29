@@ -6,10 +6,8 @@
 	padding-top: 50px;
 	min-width: 320px;
 	width: 100%;
-	background-color: #f3f3f3;
-	box-shadow: 0 2px 3px rgba(0,0,0, 0.3);
 	z-index: 4;
-
+	background-image: image-url('backgrounds/mobile-header-bg.png', false, false);
 	.filters {
 		padding-top: 8px;
 
@@ -22,18 +20,21 @@
 			display: inline-block;
 			text-align: center;
 			text-decoration: none;
-			@include geox-bold();
+			@include VeneerTwo();
+			font-size: 24px;
 			float: left;
 			padding: 8px 0;
 
 			&:first-child {
 				border-top-right-radius: 0px;
 				border-bottom-right-radius: 0px;
+				background-color: white;
 			}
 			&:last-child {
 				border-top-left-radius: 0px;
 				border-bottom-left-radius: 0px;
 				border-left: 0;
+				background-color: #f3f3f3;
 			}
 
 			&:hover {
@@ -54,7 +55,6 @@
 	width: 100%;
 	z-index: 1;
    	height: 100%;
-
 	.search-icon {
 		position: absolute;
 		width: 28px;
@@ -86,9 +86,11 @@
 		padding: 6px 20px 6px 50px;
 		border: none;
 		box-shadow: 0px 2px 0 0 rgba(0,0,0, 0.1);
-		@include geox-regular();
+		@include VeneerTwo();
 		font-size: 18px;
-		color: $colourTextNeutral;
+		color: #1b467b;
+	    font-family: 'VeneerTwo' !important;
+	    background-color: #ffffff;
 	}
 
 	#list-search {
@@ -96,19 +98,19 @@
 	}
 
 	::-webkit-input-placeholder {
-	   color: $colourTextNeutral;
+	  	color: rgba(10,95,85, 0.5); 
 	}
 
 	:-moz-placeholder { /* Firefox 18- */
-	   color: $colourTextNeutral;  
+	  	color: rgba(10,95,85, 0.5); 
 	}
 
 	::-moz-placeholder {  /* Firefox 19+ */
-	   color: $colourTextNeutral;  
+	  	color: rgba(10,95,85, 0.5); 
 	}
 
 	:-ms-input-placeholder {  
-	   color: $colourTextNeutral;  
+		color: rgba(10,95,85, 0.5); 
 	}
 	
 	#map-canvas {
@@ -131,7 +133,7 @@
 	top: 50px;
 	left: 0px;
 	z-index: 3000;
-	background-color: #f3f3f3;
+	background-color: #F9D72A;
 	box-shadow: 0 2px 2px rgba(0,0,0, 0.25);
 
 	.wrapped {
@@ -147,10 +149,9 @@
 }
 
 .bar-name {
-	@include signpainter;
+	@include VeneerTwo();
 	color: $blue-dark;
 	font-size: 28px;
-	font-style: italic;
 	font-weight: 200;
 }
 
@@ -172,7 +173,7 @@
 	float: right;
 	width: 16px;
 	height: 26px;
-	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAABICAMAAAC6P+d/AAAAh1BMVEUAAADmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCDmYCBs0TlMAAAALHRSTlMA+yIW8RsPCgP26uPcNgbI5ti9opGCe28usZiKdGlkWlNC086qXk5IPSrCtgeEVlkAAAF5SURBVEjHrdbXboNAEAXQpSzNFGMMxA1wb/P/3xdFjiKH0WV3JN/n87AS3JlRr9y7uhkCZRN3QT/xtxb2K6HfLI02SOkvtQlv6C2ml8zpPd2k9ehfnF6AybnYP4Mo3k/gJY3iZxhrn+kvrDsaJ3EFD6GZxrpiOvUgjlZMHwKo8wXTRQh1WDC9wDo4ML3KofZSpqsI92XG9FrB3BOmN1hnPtMN1vuY6Rbri8N0h3XPtDNgvSOmr1g3TMe3qdEgqc6alwFXJzoxPcfVyZ+8DBrq8MH0ceKHPUo+pVeOcalwNPthgwmdjbGrBKWU1L2UDJIW2orZAlZ9LRhnG8GgbAQjuCX74X7mTcmQHRyyXkhXZvGqu8XM9oL5tTPfEubF786ZrZHVKbNL+yJRJajoKbLfVs/cfg8+QvtiFIF9MQ6eoBjaftjPXGR1zIpx/8yNlAhWiAeXkxk7g+AWPavJ1LwYOGEJjgDDVVIrc/Tp9d16ZRX3vG33kfpkvgEPsMej8gkivgAAAABJRU5ErkJggg==');
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAABICAYAAACN4RdNAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJfSURBVHjaYvz//z8DNiDtUYNV4umOFkaGAQQAAcSI7mBcDh0sjgYIIBQHE+PYgXY0QADBHUyKYwfS0QABxESJZnI8SSkACCAmSg2gt6MBAgicJKhhKb2SB0AAMVHLIHqFNEAAUZTpBiKkAQKIidoG0jqkAQKIiRaG0tLRAAFEdsUxUMkDIIDIqpoH0tEAAcSIrfEzmB0NEEBMDHQA1AwAgABiJLV5OdAhDRBAOB08WB0NEEB4HTwYHQ0QQAQdPNgcDRBATPTO5ZQCgAAiKoQHU3EHEEAkOXgwOBoggEh28EA7GiCAyHLwQDoaIIDIdvBAORoggChy8EA4GiCAKHYwvR0NEEBUcTA9HQ0QQFRzML0cDRBAdGleUjMAAAKIqiFMj3YHQABR3cG0djRAANEkSdCysQQQQDRLw7RyNEAA0SRJ0Cp5gAIBIIBoXkpQO6QBAojmDqZ2BgQIIJomCWonBxANEEBMQyVkYQAggIbcYCBAAA3qqhlbxgUIoEFfNaOXMgABNORaawABNOTawwABNOR6HAABNOT6dAABNOR6zQABNOTGJQACaMiN/AAE0JAbWwMIoCE3egkQQEQ7eLDMLAEE0ICMwFPSqAcIICZ6O5ZSABBAQ24WCSCAhtw8HUAA0WXqlpqdUYAAovnkOLV7zgABNOS6+QABNOTWSwAEENXX/NDSsSAAEEBDbjAQIICYhpJjQQAggKi20I4ejgUBgABiGiohCwMAAUSVTEfP2X6AAGIaKiELAwABxDSUHAsCAAE05FZoAwTQkFsDDxBAjENtlwFAANF8UobaACDAADM/hdjU8WVFAAAAAElFTkSuQmCC');
 	background-repeat: no-repeat;
 	background-size: 16px 26px;
 	margin-top: -5px;
@@ -181,7 +182,7 @@
 
 address {
 	font-size: 16px;
-	@include geox-regular();
+	
 	font-style: normal;
 	color: $colourText;
 	width: 100%;
@@ -224,7 +225,7 @@ address {
 
 .bars-list-view {
 	background-image: none;
-	background-color: #f3f3f3;
+	background-color: #F9D72A;
 	position: absolute;
 	top: 0px;
 	width: 100%;
