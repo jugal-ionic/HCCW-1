@@ -601,7 +601,8 @@ function MapPageScreen() {
 
 		listWrap = this.container.querySelector('.bar-list-wrapper');
 		barList = document.getElementById('bars-list-wrap');
-
+		if(localStorage.getItem("deepLink")==='#/bars')
+			backBtn.parentNode.removeChild(backBtn);
 		if (this.screenData.standalone) {
 
 			mapCenterLocation = userLocation || mapBounds.getCenter();

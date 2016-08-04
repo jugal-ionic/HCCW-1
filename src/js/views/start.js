@@ -123,14 +123,15 @@ function StartScreen() {
 		{
 			//localStorage.setItem("deepLink", '#/login');
 			currentUser = new Parse.User();
-			return self.scrManager.addScreen(UserDetailsScreen, {standalone: true}, true);
+			return self.scrManager.addScreen(UserDetailsScreen);
 		}else
 		if (deepLink == '#/bars') {
-			return self.scrManager.addScreen(MapPageScreen, {standalone: true}, true);
+			localStorage.setItem("deepLink", '#/bars');
+			return self.scrManager.addScreen(MapPageScreen);
 		}else
 		if(deepLink=='#/voucher')
 		{
-			return self.scrManager.addScreen(HomePageScreen, {standalone: true}, true);
+			return self.scrManager.addScreen(HomePageScreen);
 		}
 		else
 		{

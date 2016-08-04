@@ -6674,6 +6674,7 @@ function MapPageScreen() {
         var backBtn = document.getElementById("backBtn"), getDirectionsBtn;
         listWrap = this.container.querySelector(".bar-list-wrapper");
         barList = document.getElementById("bars-list-wrap");
+        if (localStorage.getItem("deepLink") === "#/bars") backBtn.parentNode.removeChild(backBtn);
         if (this.screenData.standalone) {
             mapCenterLocation = userLocation || mapBounds.getCenter();
             showBarsList();
@@ -6977,17 +6978,12 @@ function StartScreen() {
         if (deepLink == "#/login") {
             //localStorage.setItem("deepLink", '#/login');
             currentUser = new Parse.User();
-            return self.scrManager.addScreen(UserDetailsScreen, {
-                standalone: true
-            }, true);
+            return self.scrManager.addScreen(UserDetailsScreen);
         } else if (deepLink == "#/bars") {
-            return self.scrManager.addScreen(MapPageScreen, {
-                standalone: true
-            }, true);
+            localStorage.setItem("deepLink", "#/login");
+            return self.scrManager.addScreen(MapPageScreen);
         } else if (deepLink == "#/voucher") {
-            return self.scrManager.addScreen(HomePageScreen, {
-                standalone: true
-            }, true);
+            return self.scrManager.addScreen(HomePageScreen);
         } else {
             if (now < startDate) {
                 return self.scrManager.addScreen(CommingSoonScreen, {

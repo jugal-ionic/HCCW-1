@@ -40,10 +40,8 @@
 		<link rel="shortcut icon" sizes="196x196" href="/assets/img/app_icons/touch-icon-196x196.png" />
 
 		<script>
-			if (window.location.protocol != "https:") {
-			   window.location.protocol = "https:";
-			   window.location.reload();
-			}
+			if (location.protocol == 'http:')
+	  				location.href = location.href.replace(/^http:/, 'https:');
 			if (typeof ga === undefined) {
 				ga = function() {
 
