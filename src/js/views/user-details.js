@@ -98,7 +98,7 @@ function UserDetailsScreen() {
 			currentUser.set('receiveEmails', newsletterSignup.checked);
 
 			if (updateCRM) {
-				signUpNewsletter(this.screenData.standalone);
+				signUpNewsletter(self.screenData.standalone);
 			}
 
 			currentUser.signUp(null, {
@@ -179,7 +179,7 @@ function UserDetailsScreen() {
 		postcode = document.getElementById('postcodeInput');
 		termsAndCond = document.getElementById("checkboxOne");
 		newsletterSignup = document.getElementById("checkboxTwo");
-		console.log(currentUser);
+		self.screenData.standalone=this.screenData.standalone;
 		if(currentUser === null)
 		{
 			fullName.value = "";

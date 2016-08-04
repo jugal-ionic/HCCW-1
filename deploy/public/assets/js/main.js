@@ -7169,7 +7169,7 @@ function UserDetailsScreen() {
             currentUser.set("postcode", postcode.value);
             currentUser.set("receiveEmails", newsletterSignup.checked);
             if (updateCRM) {
-                signUpNewsletter(this.screenData.standalone);
+                signUpNewsletter(self.screenData.standalone);
             }
             currentUser.signUp(null, {
                 success: function(user) {
@@ -7227,7 +7227,7 @@ function UserDetailsScreen() {
         postcode = document.getElementById("postcodeInput");
         termsAndCond = document.getElementById("checkboxOne");
         newsletterSignup = document.getElementById("checkboxTwo");
-        console.log(currentUser);
+        self.screenData.standalone = this.screenData.standalone;
         if (currentUser === null) {
             fullName.value = "";
             email.value = "";
