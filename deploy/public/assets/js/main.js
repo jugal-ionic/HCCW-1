@@ -6985,7 +6985,7 @@ function StartScreen() {
                 standalone: true
             }, true);
         } else if (deepLink == "#/voucher") {
-            return self.scrManager.addScreen(VoucherPageScreen, {
+            return self.scrManager.addScreen(HomePageScreen, {
                 standalone: true
             }, true);
         } else {
@@ -7169,7 +7169,7 @@ function UserDetailsScreen() {
             currentUser.set("postcode", postcode.value);
             currentUser.set("receiveEmails", newsletterSignup.checked);
             if (updateCRM) {
-                signUpNewsletter();
+                signUpNewsletter(this.screenData.standalone);
             }
             currentUser.signUp(null, {
                 success: function(user) {

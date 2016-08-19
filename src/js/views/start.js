@@ -130,7 +130,7 @@ function StartScreen() {
 		}else
 		if(deepLink=='#/voucher')
 		{
-			return self.scrManager.addScreen(VoucherPageScreen, {standalone: true}, true);
+			return self.scrManager.addScreen(HomePageScreen, {standalone: true}, true);
 		}
 		else
 		{
