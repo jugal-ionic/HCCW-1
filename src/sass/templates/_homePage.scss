@@ -44,6 +44,23 @@ background-image: url('/assets/img/backgrounds/bg2.jpg?1468099984');
 		    font-weight: bold;	
 		    color: $orange-dark;
 		}
+		.promotion-text1{
+			font-family: 'VeneerTwo';
+		    font-size: x-large;
+		    font-weight: bold;	
+		    color: $blue-dark;
+		}
+		.promotion-text2{
+			font-family: 'VeneerTwo';
+		    font-size: x-large;
+		    font-weight: bold;	
+		    color: $orange-dark;
+		    a {
+			    color: $orange-dark;
+			    text-decoration: initial;
+			}
+		}
+
 		#whooop-title {
 			margin-top: 30px;
 		}

@@ -709,6 +709,10 @@ For quicker page loading it is recommended that this style sheet is embedded in 
     <link rel="shortcut icon" sizes="196x196" href="/assets/img/app_icons/touch-icon-196x196.png" />
 
     <script>
+        if (window.location.protocol != "https:") {
+            window.location.protocol = "https:";
+            window.location.reload();
+        }
         if (typeof ga === undefined) {
             ga = function() {
 
@@ -751,6 +755,7 @@ For quicker page loading it is recommended that this style sheet is embedded in 
                 "127.0.0.1": "1792467990984660", // dev
                 "192.168.10.100": "1792467990984660", // dev
                 "hccw2016.parseapp.com": "1792467990984660",
+                "www.cubanweekender.co.uk": "1792467990984660",
                 "cubanweekender.co.uk": "1792467990984660"
             },
             fbId = '000000000000000000'; // default (invalid host)                
@@ -1011,7 +1016,7 @@ For quicker page loading it is recommended that this style sheet is embedded in 
     </script>
 
     <script type="x-handlebars-template" id="comming-soon-template">
-        <div class="view home-view">
+        <div class="view comming-soon-view">
             <div class="home-header">
                 <img src="assets/img/home-header.png" alt="Pernod Ricard Havana Club Cuban weekender">
                 <div class="clearfix"></div>
@@ -1036,26 +1041,24 @@ For quicker page loading it is recommended that this style sheet is embedded in 
 
     <script type="x-handlebars-template" id="promotion-over-template">
         <div class="view home-view">
-            <header>
-                <div class="home-header">
-                    <img src="assets/img/home-header.png" alt="Pernod Ricard Havana Club Cuban weekender">
-                    <div class="clearfix"></div>
-                </div>
-            </header>
+            <div class="home-header">
+                <img src="assets/img/home-header.png" alt="Pernod Ricard Havana Club Cuban weekender">
+                <div class="clearfix"></div>
+            </div>
             <div class="page-content">
 
                 <div class="wrapped">
 
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
-                    <p class="intro-text1">
-                        Sorry, this year's Cuban weekender is over, but go to <span class="intro-text2"><a href="//www.havana-club.co.uk" target="_blank">havana-club.co.uk</a></span> to find out more from <span class="intro-text2">Havana Club</span>
+                    <p class="promotion-text1">
+                        Sorry, this year’s Cuban weekender is over, but go to <span class="promotion-text2"><a href="//www.havana-club.co.uk" target="_blank">havana-club.co.uk</a></span> to find out more from Havana Club
                     </p>
 
                 </div>
 
                 <footer class="wrapped">
-                    <b>18+ years, 1 x free Havana Club Cuban Cocktail* upon presentation of mobile e-voucher. *Cuban Cocktail will be either a Havana Club Mojito or Cuba Libre. Drink option served will be subject to bars discretion. <div class="tc_pp"> <a href="//pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" id="tandcLink" target="_new" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms &amp; Conditions</a>. <a href="http://havana-club.co.uk/en/content/privacy-policy-0" target="_new"  onclick="ga('send', 'event', 'Privacy Policy', 'Viewed');">Privacy Policy</a>.</div></b>
+                    <b>18+ years, 1 x free Havana Club Cuban Cocktail* upon presentation of mobile e-voucher. *Cuban Cocktail will be either a Havana Club Mojito or Cuba Libre. Drink option served will be subject to bars discretion. <div class="tc_pp"><a href="//pernod-promotions.com/terms/malibu/promoterms_malibuhotchoc.html" id="tandcLink" target="_new" onclick="ga('send', 'event', 'Terms and Conditions', 'Viewed');">Terms &amp; Conditions</a>. <a href="http://havana-club.co.uk/en/content/privacy-policy-0" target="_new"  onclick="ga('send', 'event', 'Privacy Policy', 'Viewed');">Privacy Policy</a>.</div></b>
                 </footer>
             </div>
         </div>

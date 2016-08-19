@@ -165,7 +165,7 @@ function welcomeNewUser() {
 
 }
 
-function signUpNewsletter() {
+function signUpNewsletter(skipDob) {
 
 	if (window.location.host !== 'www.cubanweekender.co.uk') {
 		return;
@@ -175,17 +175,35 @@ function signUpNewsletter() {
 		formData = getUserCrmData();
 
 	function getUserCrmData() {
-
-		var userData = {
+		var userData = {};
+		if(skipDob)
+		{
+			userData = {
 				email: currentUser.attributes.email,
 				name: currentUser.attributes.name,
+				dobDay: null,
+				dobMonth: null,
+				dobYear: null,				
+				postCode: currentUser.attributes.postcode || '',
+				optIn: (currentUser.attributes.receiveEmails ? 1 : 0)
+			};
+		}
+		else
+		{
+			userData = {
+				email: currentUser.attributes.email,
+				name: currentUser.attributes.name,
+
 				dobDay: currentUser.attributes.birthday.getDate(),
 				dobMonth: currentUser.attributes.birthday.getMonth() + 1,
 				dobYear: currentUser.attributes.birthday.getFullYear(),
+				
 				postCode: currentUser.attributes.postcode || '',
 				optIn: (currentUser.attributes.receiveEmails ? 1 : 0)
-			},
-			keyValuePairs = [],
+			};
+		}
+		
+			var keyValuePairs = [],
 			i;
 
 		for (i in userData) {

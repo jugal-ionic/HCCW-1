@@ -165,12 +165,6 @@ function AgeGateScreen() {
 	//Do post container creation processing
 	this.processContainer = function() {
 		
-		// document.getElementById('tile1').style.display = "none";
-		// document.getElementById('tile2').style.display = "none";
-		// document.getElementById('tile3').style.display = "none";
-		// document.getElementById('tile4').style.display = "none";
-		// document.getElementById('tile5').style.display = "none";
-		// document.getElementById('tile6').style.display = "inline";
 		this.events.publish(this.id + 'ContainerReady', this);
 		dayField = document.getElementById('birth-day');
 		monthField = document.getElementById('birth-month');

@@ -434,11 +434,58 @@ function MapPageScreen() {
 	}
 
 	function searchNearAddress(address) {
-
+		var search_text=address.toLowerCase();
+		// birmingham - B1 2DS
+		// newport - NP20 1DS
+		// cambridge - CB2 1AB
+		// worcester - WR1 3LD
+		// lincoln - LN2 1JG
+		// sheffield - S9 1EP
+		// york - YO1 8AD
+		// carlisle - CA1 1RP
+		if(search_text===('birmingham'.toLowerCase()))
+		{
+			search_text='B1 2DS';
+		}
+		else
+		if(search_text===('newport'.toLowerCase()))
+		{
+			search_text='NP20 1DS';
+		}
+		else
+		if(search_text===('cambridge'.toLowerCase()))
+		{
+			search_text='CB2 1AB';
+		}
+		else
+		if(search_text===('worcester'.toLowerCase()))
+		{
+			search_text='WR1 3LD';
+		}
+		else
+		if(search_text===('lincoln'.toLowerCase()))
+		{
+			search_text='LN2 1JG';
+		}
+		else
+		if(search_text===('sheffield'.toLowerCase()))
+		{
+			search_text='S9 1EP';
+		}
+		else
+		if(search_text===('york'.toLowerCase()))
+		{
+			search_text='YO1 8AD';
+		}
+		else
+		if(search_text===('carlisle'.toLowerCase()))
+		{
+			search_text='CA1 1RP';
+		}
 		isReceivingData = true;
 
 		geoCoder.geocode({
-			address: address
+			address: search_text
 		}, function(results, status) {
 
 			var locationCoordinates;
@@ -547,13 +594,6 @@ function MapPageScreen() {
 
 	//Do post container creation processing
 	this.processContainer = function() {
-		
-		// document.getElementById('tile1').style.display = "none";
-		// document.getElementById('tile2').style.display = "none";
-		// document.getElementById('tile3').style.display = "none";
-		// document.getElementById('tile4').style.display = "none";
-		// document.getElementById('tile5').style.display = "none";
-		// document.getElementById('tile6').style.display = "none";
 		this.events.publish(this.id + 'ContainerReady', this);
 
 		var backBtn = document.getElementById('backBtn'),
@@ -594,7 +634,9 @@ function MapPageScreen() {
 		}
 
 		getNearestToMapCenter();
-
+		
+		if(window.location.hash==='#/voucher')
+			document.getElementById('backBtn').style.display ="none";
 		return this.container;
 
 	};

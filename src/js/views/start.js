@@ -118,30 +118,39 @@ function StartScreen() {
 	}
 
 	self.routeUser = function() {
-		
-		if (now < startDate) {
-		 	return self.scrManager.addScreen(CommingSoonScreen, {standalone: true}, true);
-		}
-		if (now > endDate) {
-		 	return self.scrManager.addScreen(PromotionOverScreen, {standalone: true}, true);
-		}
-
-		if (window.location.pathname === '/bars') {
-			return self.scrManager.addScreen(MapPageScreen, {standalone: true}, true);
-		}
-
-		// if (window.location.pathname === '/privacy-policy') {
-		// 	return self.scrManager.addScreen(PrivacyPolicyScreen, {standalone: true}, true);
-		// }
-
-		if (loggedIn && !sessionExpired && currentUser.attributes.drinkRedeemed) {
-			return self.scrManager.addScreen(ThankYouScreen);
-		} else if (loggedIn && !sessionExpired) {
-			return self.scrManager.addScreen(HomePageScreen);
-		} else {
+		var deepLink=window.location.hash;
+		if(deepLink=='#/login')
+		{
+			//localStorage.setItem("deepLink", '#/login');
 			currentUser = new Parse.User();
-			return self.scrManager.addScreen(AgeGateScreen);
+			return self.scrManager.addScreen(UserDetailsScreen, {standalone: true}, true);
+		}else
+		if (deepLink == '#/bars') {
+			return self.scrManager.addScreen(MapPageScreen, {standalone: true}, true);
+		}else
+		if(deepLink=='#/voucher')
+		{
+			return self.scrManager.addScreen(VoucherPageScreen, {standalone: true}, true);
 		}
+		else
+		{
+			if (now < startDate) {
+		 		return self.scrManager.addScreen(CommingSoonScreen, {standalone: true}, true);
+			}else 
+			if (now > endDate) {
+			 	return self.scrManager.addScreen(PromotionOverScreen, {standalone: true}, true);
+			} 
+			if (loggedIn && !sessionExpired && currentUser.attributes.drinkRedeemed) {
+				return self.scrManager.addScreen(ThankYouScreen);
+			} else if (loggedIn && !sessionExpired) {
+				return self.scrManager.addScreen(HomePageScreen);
+			} else 
+			{
+				currentUser = new Parse.User();
+				return self.scrManager.addScreen(AgeGateScreen);
+			}
+		}
+		
 
 	};
 

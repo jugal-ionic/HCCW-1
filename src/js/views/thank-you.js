@@ -30,7 +30,7 @@ function ThankYouScreen() {
 
 		signUpNewsletter();
 
-		subscribeSection.innerHTML = '<p>Thank you!</p>';
+		subscribeSection.innerHTML = '<p class="promotion-text1">Thank you!</p>';
 
 	};
 

@@ -98,7 +98,7 @@ function UserDetailsScreen() {
 			currentUser.set('receiveEmails', newsletterSignup.checked);
 
 			if (updateCRM) {
-				signUpNewsletter();
+				signUpNewsletter(this.screenData.standalone);
 			}
 
 			currentUser.signUp(null, {

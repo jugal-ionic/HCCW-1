@@ -160,8 +160,10 @@ function VoucherPageScreen() {
 	//Do post container creation processing
 	this.processContainer = function() {
 		this.events.publish(this.id + 'ContainerReady', this);
-		if(window.location.hash==='#/voucher')
-			document.getElementById('backBtn').style.display ="none";
+		var backBtn = document.getElementById('backBtn');
+		if (this.screenData.standalone) {
+			backBtn.parentNode.removeChild(backBtn);
+		}
 		form = document.getElementById('enter-code-form');
 		form.addEventListener('submit', validateCode);
 		form.addEventListener('keypress', validateFieldInput);
